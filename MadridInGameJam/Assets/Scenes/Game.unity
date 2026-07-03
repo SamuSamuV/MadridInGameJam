@@ -574,8 +574,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed8f02391a8af8b49882805d805e85c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RailNode
-  tooltipObject: {fileID: 1616467118}
-  tooltipText: {fileID: 0}
+  tooltipObject: {fileID: 1777402462}
+  tooltipText: {fileID: 1777402464}
   nodeName: Parada Desconocida
   connections:
   - {fileID: 528771128}
@@ -600,7 +600,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: f5d3a67ceed83a64fa43025e6419b6f4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -799,7 +799,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 7f6ec8e9b6400d341b2a5ad08328c0ce, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1519,7 +1519,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 246.28, y: -253.22308}
+  m_AnchoredPosition: {x: 246.28, y: -108}
   m_SizeDelta: {x: -578.57, y: -1058.6738}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &496001296
@@ -1591,8 +1591,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed8f02391a8af8b49882805d805e85c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RailNode
-  tooltipObject: {fileID: 1616467118}
-  tooltipText: {fileID: 0}
+  tooltipObject: {fileID: 1777402462}
+  tooltipText: {fileID: 1777402464}
   nodeName: Parada Desconocida
   connections:
   - {fileID: 1304770976}
@@ -1617,7 +1617,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: d9671e3b4c5cd35438efe8fdbba1a575, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1896,7 +1896,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 103a952afe4f7284a94cb66d5171af25, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1981,8 +1981,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed8f02391a8af8b49882805d805e85c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RailNode
-  tooltipObject: {fileID: 1616467118}
-  tooltipText: {fileID: 0}
+  tooltipObject: {fileID: 1777402462}
+  tooltipText: {fileID: 1777402464}
   nodeName: Parada Desconocida
   connections:
   - {fileID: 1489512799}
@@ -2000,14 +2000,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.96981126, g: 0.9030202, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 6137ec15e63ea2d4cb8e28382555bbd4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2369,7 +2369,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c4c559f10926c1040a0182e86da1a6f1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 19a1ba4dcd0ee93459d283f1846d70d6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2437,8 +2437,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed8f02391a8af8b49882805d805e85c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RailNode
-  tooltipObject: {fileID: 1616467118}
-  tooltipText: {fileID: 0}
+  tooltipObject: {fileID: 1777402462}
+  tooltipText: {fileID: 1777402464}
   nodeName: Parada Desconocida
   connections:
   - {fileID: 1568444604}
@@ -2455,14 +2455,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.088679194, g: 0.6497101, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 819cefa1ee10f6e41b2833aa2e41ccc9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2532,14 +2532,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: d053f9af4043ebe42a72d7aebc709831, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2739,7 +2739,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -713.71606, y: -28}
-  m_SizeDelta: {x: 1341.4321, y: 754.5556}
+  m_SizeDelta: {x: 1341.4321, y: 609.34}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &836805380
 MonoBehaviour:
@@ -2824,8 +2824,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed8f02391a8af8b49882805d805e85c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RailNode
-  tooltipObject: {fileID: 1616467118}
-  tooltipText: {fileID: 0}
+  tooltipObject: {fileID: 1777402462}
+  tooltipText: {fileID: 1777402464}
   nodeName: Parada Desconocida
   connections:
   - {fileID: 672149644}
@@ -2850,7 +2850,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: b1af1fb871f8a3e4093c30f4f6f90f28, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2945,7 +2945,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 84ebd258e0c63914dbed4eb5e611b5aa, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3689,8 +3689,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed8f02391a8af8b49882805d805e85c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RailNode
-  tooltipObject: {fileID: 1616467118}
-  tooltipText: {fileID: 0}
+  tooltipObject: {fileID: 1777402462}
+  tooltipText: {fileID: 1777402464}
   nodeName: Parada Desconocida
   connections:
   - {fileID: 1568444604}
@@ -3715,7 +3715,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 59bcd7b9dcdea2a4388a9a0911dcdbe8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3764,8 +3764,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed8f02391a8af8b49882805d805e85c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RailNode
-  tooltipObject: {fileID: 1616467118}
-  tooltipText: {fileID: 0}
+  tooltipObject: {fileID: 1777402462}
+  tooltipText: {fileID: 1777402464}
   nodeName: Parada Desconocida
   connections:
   - {fileID: 1568444604}
@@ -3789,7 +3789,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 215f693424940244c8258f242081c94e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3903,7 +3903,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: d3a1bc0b73d0d2a4ea7e71c661a62c47, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3948,7 +3948,7 @@ RectTransform:
   m_GameObject: {fileID: 1315184455}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.92929, y: 0.92929, z: 0.92929}
+  m_LocalScale: {x: 1.0475886, y: 1.0475886, z: 1.0475886}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1754526946}
@@ -3956,7 +3956,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 124, y: -392}
+  m_AnchoredPosition: {x: 138.33, y: -292}
   m_SizeDelta: {x: -458.2572, y: -827.7344}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1315184457
@@ -4326,8 +4326,8 @@ MonoBehaviour:
   destination2Text: {fileID: 137826539}
   cameraViewport: {fileID: 836805379}
   bottomBar: {fileID: 496001295}
-  expandAmount: 250
-  expandSpeed: 0.5
+  expandAmount: 390
+  expandSpeed: 3
   anticipationHeight: 25
   exitDropDistance: 800
   ladyAnimSpeed: 5
@@ -4675,7 +4675,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: c554d02e06de772439044f260d099816, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4846,7 +4846,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: a9f2d0dc402f0f3449d2915e678eb2c2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4907,14 +4907,14 @@ RectTransform:
   m_GameObject: {fileID: 1565569427}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.8372903, y: 0.8372903, z: 0.8372903}
+  m_LocalScale: {x: 0.94387734, y: 0.94387734, z: 0.94387734}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1242129951}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -617.74, y: -372.18}
+  m_AnchoredPosition: {x: -697.82, y: -292.18}
   m_SizeDelta: {x: 388.4596, y: 388.4596}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1565569429
@@ -4986,8 +4986,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed8f02391a8af8b49882805d805e85c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RailNode
-  tooltipObject: {fileID: 1616467118}
-  tooltipText: {fileID: 0}
+  tooltipObject: {fileID: 1777402462}
+  tooltipText: {fileID: 1777402464}
   nodeName: Parada Desconocida
   connections:
   - {fileID: 272656463}
@@ -5011,7 +5011,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 0e9b45dc9af38dc43ad35fe6d237f24c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5098,8 +5098,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed8f02391a8af8b49882805d805e85c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RailNode
-  tooltipObject: {fileID: 1616467118}
-  tooltipText: {fileID: 0}
+  tooltipObject: {fileID: 1777402462}
+  tooltipText: {fileID: 1777402464}
   nodeName: Parada Desconocida
   connections:
   - {fileID: 1292962919}
@@ -5124,7 +5124,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 59bcd7b9dcdea2a4388a9a0911dcdbe8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5329,8 +5329,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed8f02391a8af8b49882805d805e85c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RailNode
-  tooltipObject: {fileID: 1616467118}
-  tooltipText: {fileID: 0}
+  tooltipObject: {fileID: 1777402462}
+  tooltipText: {fileID: 1777402464}
   nodeName: Parada Desconocida
   connections:
   - {fileID: 2029970851}
@@ -5355,7 +5355,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 2640f272f9711a246a4591e90bf0ab67, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5425,14 +5425,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.10186505, g: 1, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 7025d2c50fc8e614b93f6a8fb1256e18, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5681,7 +5681,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: e9aaf86e03d2e05458e2eed24fa1cba1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5962,8 +5962,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed8f02391a8af8b49882805d805e85c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RailNode
-  tooltipObject: {fileID: 1616467118}
-  tooltipText: {fileID: 0}
+  tooltipObject: {fileID: 1777402462}
+  tooltipText: {fileID: 1777402464}
   nodeName: Parada Desconocida
   connections:
   - {fileID: 528771128}
@@ -5988,7 +5988,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 06c415253081175479297c3e77a82d25, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6129,7 +6129,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 183.83832, y: 73.72325, z: 30, w: 17.530396}
+  m_margin: {x: 183.83832, y: 73.72325, z: -9.141602, w: 17.530396}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -6339,7 +6339,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 55a0ff1dd9cab104b8085cd2b473c32d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6466,7 +6466,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: a81ec7a890cf94e4bba3f28efa783933, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6599,8 +6599,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed8f02391a8af8b49882805d805e85c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RailNode
-  tooltipObject: {fileID: 1616467118}
-  tooltipText: {fileID: 0}
+  tooltipObject: {fileID: 1777402462}
+  tooltipText: {fileID: 1777402464}
   nodeName: Parada Desconocida
   connections:
   - {fileID: 1568444604}
@@ -6626,7 +6626,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: dfb1080abe578cb4894494ec8a0f7331, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7117,8 +7117,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed8f02391a8af8b49882805d805e85c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RailNode
-  tooltipObject: {fileID: 1616467118}
-  tooltipText: {fileID: 0}
+  tooltipObject: {fileID: 1777402462}
+  tooltipText: {fileID: 1777402464}
   nodeName: Parada Desconocida
   connections:
   - {fileID: 1532635235}
@@ -7162,7 +7162,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 02f08cc3a838e8c40a2954edaf317c98, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
