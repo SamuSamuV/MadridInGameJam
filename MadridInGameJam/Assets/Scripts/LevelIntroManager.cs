@@ -4,13 +4,12 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 
-// --- NUEVO SISTEMA: Los 3 tipos de comportamiento posibles para una regla ---
 public enum RuleCondition
 {
-    None,                 // Sin regla
-    MandatoryNodes,       // OBLIGATORIO: Debe pasar por TODAS las paradas de la lista (Empieza en X, cambia a Check)
-    ForbiddenConnections, // LÍNEA PROHIBIDA: No puede saltar directamente entre paradas de esta lista (Empieza en Check, cambia a X)
-    ForbiddenNodes        // MINAS: Prohibido pisar cualquiera de estas paradas (Empieza en Check, cambia a X)
+    None,
+    MandatoryNodes,
+    ForbiddenConnections,
+    ForbiddenNodes
 }
 
 // Estructura de cada Regla
@@ -18,7 +17,7 @@ public enum RuleCondition
 public class RuleData
 {
     [TextArea(2, 3)] public string ruleText;
-    public RuleCondition condition; // El desplegable
+    public RuleCondition condition;
     [Tooltip("Escribe los nombres exactos de las paradas. Ej: Goya, Cuatro Caminos...")]
     public List<string> targetNodes;
 }
@@ -291,7 +290,6 @@ public class LevelIntroManager : MonoBehaviour
             if (rule1Text != null) rule1Text.text = config.rule1.ruleText;
             if (rule2Text != null) rule2Text.text = config.rule2.ruleText;
 
-            // Encendemos los iconos solo si la regla no está configurada como "None"
             if (rule1StatusIcon != null) rule1StatusIcon.gameObject.SetActive(config.rule1.condition != RuleCondition.None);
             if (rule2StatusIcon != null) rule2StatusIcon.gameObject.SetActive(config.rule2.condition != RuleCondition.None);
 
@@ -304,27 +302,22 @@ public class LevelIntroManager : MonoBehaviour
         if (destination1Text != null) destination1Text.text = newLocationName;
     }
 
-    // --- EL FIX DEFINITIVO: Limpiador extremo de Textos ---
     private string CleanString(string input)
     {
         if (string.IsNullOrEmpty(input)) return "";
-        // Eliminamos CUALQUIER espacio, salto de línea, o retorno de carro oculto y pasamos a minúsculas
         return input.Replace(" ", "").Replace("\n", "").Replace("\r", "").Replace("\u200B", "").ToLowerInvariant();
     }
 
-    // --- EVALUACIÓN DE REGLAS MODULAR ---
     public void EvaluateRules(List<RailNode> visitedNodes)
     {
         LevelConfig currentConfig = levelConfigs[currentLevelIndex];
 
-        // 1. Recopilamos todos los nombres de los nodos visitados YA LIMPIOS
         List<string> visitedNames = new List<string>();
         foreach (var node in visitedNodes)
         {
             visitedNames.Add(CleanString(node.nodeName));
         }
 
-        // Evaluamos la Regla 1 y la Regla 2 pasándolas por la misma función
         if (rule1StatusIcon != null)
             rule1StatusIcon.sprite = CheckRule(currentConfig.rule1, visitedNames) ? checkSprite : crossSprite;
 
@@ -332,12 +325,10 @@ public class LevelIntroManager : MonoBehaviour
             rule2StatusIcon.sprite = CheckRule(currentConfig.rule2, visitedNames) ? checkSprite : crossSprite;
     }
 
-    // Función universal para evaluar reglas. Devuelve TRUE si cumple (Check), FALSE si no cumple (X)
     private bool CheckRule(RuleData rule, List<string> visitedNames)
     {
         if (rule.condition == RuleCondition.None) return true;
 
-        // Limpiamos los nombres de la configuración de Unity
         List<string> targetsClean = new List<string>();
         if (rule.targetNodes != null)
         {
@@ -347,8 +338,7 @@ public class LevelIntroManager : MonoBehaviour
         switch (rule.condition)
         {
             case RuleCondition.MandatoryNodes:
-                // OBLIGATORIO: Devuelve FALSE (X) si te falta alguna por visitar. Devuelve TRUE (Check) si has pisado todas.
-                if (targetsClean.Count == 0) return false; // Si te dejas la lista vacía, falla
+                if (targetsClean.Count == 0) return false;
                 foreach (string mandatory in targetsClean)
                 {
                     if (!visitedNames.Contains(mandatory)) return false;
@@ -356,7 +346,6 @@ public class LevelIntroManager : MonoBehaviour
                 return true;
 
             case RuleCondition.ForbiddenConnections:
-                // CONEXIONES PROHIBIDAS: Devuelve FALSE (X) si saltas directamente de una prohibida a otra de la lista
                 if (targetsClean.Count == 0) return true;
                 for (int i = 0; i < visitedNames.Count - 1; i++)
                 {
@@ -365,19 +354,18 @@ public class LevelIntroManager : MonoBehaviour
 
                     if (targetsClean.Contains(nodeA) && targetsClean.Contains(nodeB))
                     {
-                        return false; // Ha conectado dos prohibidas
+                        return false;
                     }
                 }
-                return true; // No ha roto la regla
+                return true;
 
             case RuleCondition.ForbiddenNodes:
-                // MINAS: Devuelve FALSE (X) si pisa cualquier nodo de la lista
                 if (targetsClean.Count == 0) return true;
                 foreach (string visited in visitedNames)
                 {
-                    if (targetsClean.Contains(visited)) return false; // Ha pisado una mina
+                    if (targetsClean.Contains(visited)) return false;
                 }
-                return true; // No ha pisado ninguna
+                return true;
         }
 
         return true;
