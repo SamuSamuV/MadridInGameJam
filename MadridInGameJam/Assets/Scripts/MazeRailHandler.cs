@@ -12,8 +12,11 @@ public class MazeRailHandler : MonoBehaviour, IDragHandler, IBeginDragHandler, I
     public RectTransform linesContainer;
 
     [Header("Movement Settings")]
+    [Tooltip("Velocidad a la que el cubo persigue al ratón. Bájalo para que pese más, súbelo para más rapidez.")]
     public float followSpeed = 25f;
+    [Tooltip("Píxeles que hay que arrastrar antes de que empiece a tirar (Evita temblores).")]
     public float minDragDistanceToCommit = 20f;
+    [Tooltip("Radio alrededor de la estación en el que puedes CAMBIAR de opinión de carril sin tener que soltar el ratón.")]
     public float freeSwitchDistance = 80f;
     public float maxDragDistance = 250f;
 
@@ -29,7 +32,6 @@ public class MazeRailHandler : MonoBehaviour, IDragHandler, IBeginDragHandler, I
 
     private bool isDragging = false;
     private Vector2 dragTargetPos;
-    private Vector2 dragOffset;
 
     public static MazeRailHandler Instance;
 
@@ -52,8 +54,7 @@ public class MazeRailHandler : MonoBehaviour, IDragHandler, IBeginDragHandler, I
 
             if (LevelIntroManager.Instance != null)
             {
-                // AHORA PASAMOS LOS COLORES TAMBIÉN
-                LevelIntroManager.Instance.UpdateDestination1(currentNode.nodeName, currentNode.stationColors);
+                LevelIntroManager.Instance.UpdateDestination1(currentNode.nodeName);
                 LevelIntroManager.Instance.EvaluateRules(visitedNodes);
             }
         }
@@ -72,15 +73,6 @@ public class MazeRailHandler : MonoBehaviour, IDragHandler, IBeginDragHandler, I
     {
         isDragging = true;
         dragTargetPos = myRect.localPosition;
-
-        if (RectTransformUtility.ScreenPointToLocalPointInRectangle(
-            (RectTransform)myRect.parent,
-            eventData.position,
-            eventData.pressEventCamera,
-            out Vector2 localMousePos))
-        {
-            dragOffset = (Vector2)myRect.localPosition - localMousePos;
-        }
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -98,26 +90,27 @@ public class MazeRailHandler : MonoBehaviour, IDragHandler, IBeginDragHandler, I
             (RectTransform)myRect.parent,
             eventData.position,
             eventData.pressEventCamera,
-            out Vector2 rawLocalMousePos))
+            out Vector2 localMousePos))
         {
-            Vector2 localMousePos = rawLocalMousePos + dragOffset;
-
             Vector2 startPos = GetLocalPos(currentNode);
             Vector2 mouseDir = (localMousePos - startPos).normalized;
             float mouseDist = Vector2.Distance(startPos, localMousePos);
             float cubeDist = Vector2.Distance(myRect.localPosition, startPos);
 
+            // 1. DESENGANCHE RÁPIDO: Si devuelves el ratón cerca de la estación, soltamos el raíl
             if (mouseDist < minDragDistanceToCommit)
             {
                 if (targetNode != null) CancelTargetAndReturn();
             }
             else
             {
+                // 2. MAGIA: ¿Podemos cambiar de ruta? 
+                // Sí, si no tenemos ruta aún, O si el cubo está dentro de la zona de tolerancia (freeSwitchDistance)
                 bool canSwitchTrack = (targetNode == null || cubeDist < freeSwitchDistance);
 
                 if (canSwitchTrack)
                 {
-                    float bestScore = 0.3f;
+                    float bestScore = 0.3f; // Tolerancia angular amplia
                     RailNode newBestNode = targetNode;
 
                     foreach (RailNode connection in currentNode.connections)
@@ -132,6 +125,7 @@ public class MazeRailHandler : MonoBehaviour, IDragHandler, IBeginDragHandler, I
                         Vector2 trackDir = (GetLocalPos(connection) - startPos).normalized;
                         float dotProduct = Vector2.Dot(mouseDir, trackDir);
 
+                        // Comparamos hacia dónde apunta el ratón con la dirección del raíl
                         if (dotProduct > bestScore)
                         {
                             bestScore = dotProduct;
@@ -139,13 +133,16 @@ public class MazeRailHandler : MonoBehaviour, IDragHandler, IBeginDragHandler, I
                         }
                     }
 
+                    // Si el jugador giró el ratón apuntando mejor hacia otro raíl válido, cambiamos al instante
                     if (newBestNode != null && newBestNode != targetNode)
                     {
+                        // Devolvemos la visual de la línea anterior si estábamos retrocediendo
                         if (targetNode != null && isBacktracking && bakedLines.Count > 0)
                         {
                             bakedLines.Peek().SetActive(true);
                         }
 
+                        // Fijamos el nuevo objetivo
                         targetNode = newBestNode;
                         isBacktracking = (visitedNodes.Count > 1 && targetNode == visitedNodes[visitedNodes.Count - 2]);
 
@@ -157,12 +154,14 @@ public class MazeRailHandler : MonoBehaviour, IDragHandler, IBeginDragHandler, I
                     }
                 }
 
+                // 3. MOVIMIENTO POR EL CARRIL ELEGIDO
                 if (targetNode != null)
                 {
                     GetClosestPointInfo(GetLocalPos(currentNode), GetLocalPos(targetNode), localMousePos, out Vector2 point, out float t);
 
-                    dragTargetPos = point;
+                    dragTargetPos = point; // El cubo se deslizará hacia este punto
 
+                    // Llegada a la meta
                     if (t >= 0.99f)
                     {
                         CompleteMovementToTarget();
@@ -175,6 +174,8 @@ public class MazeRailHandler : MonoBehaviour, IDragHandler, IBeginDragHandler, I
     public void OnEndDrag(PointerEventData eventData)
     {
         isDragging = false;
+
+        // Si el jugador suelta el clic antes de llegar al objetivo, el cubo vuelve a la base
         if (targetNode != null)
         {
             CancelTargetAndReturn();
@@ -187,8 +188,10 @@ public class MazeRailHandler : MonoBehaviour, IDragHandler, IBeginDragHandler, I
         {
             if (isDragging && targetNode != null)
             {
+                // MOVIMIENTO SUAVIZADO HACIA EL RATÓN
                 myRect.localPosition = Vector3.Lerp(myRect.localPosition, dragTargetPos, Time.deltaTime * followSpeed);
 
+                // Dibujar la línea unida al cubo dinámicamente
                 if (isBacktracking)
                     DrawUILine(activeLineRect, GetLocalPos(targetNode), myRect.localPosition);
                 else
@@ -196,6 +199,7 @@ public class MazeRailHandler : MonoBehaviour, IDragHandler, IBeginDragHandler, I
             }
             else if (!isDragging)
             {
+                // RETROCESO SUAVIZADO SI SUELTA EL RATÓN
                 myRect.localPosition = Vector3.Lerp(myRect.localPosition, GetLocalPos(currentNode), Time.deltaTime * followSpeed);
             }
         }
@@ -210,8 +214,7 @@ public class MazeRailHandler : MonoBehaviour, IDragHandler, IBeginDragHandler, I
 
             if (LevelIntroManager.Instance != null)
             {
-                // AHORA PASAMOS LOS COLORES
-                LevelIntroManager.Instance.UpdateDestination1(targetNode.nodeName, targetNode.stationColors);
+                LevelIntroManager.Instance.UpdateDestination1(targetNode.nodeName);
                 LevelIntroManager.Instance.EvaluateRules(visitedNodes);
             }
         }
@@ -224,8 +227,7 @@ public class MazeRailHandler : MonoBehaviour, IDragHandler, IBeginDragHandler, I
 
             if (LevelIntroManager.Instance != null)
             {
-                // AHORA PASAMOS LOS COLORES
-                LevelIntroManager.Instance.UpdateDestination1(targetNode.nodeName, targetNode.stationColors);
+                LevelIntroManager.Instance.UpdateDestination1(targetNode.nodeName);
                 LevelIntroManager.Instance.EvaluateRules(visitedNodes);
             }
 
