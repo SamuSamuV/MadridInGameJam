@@ -48,16 +48,22 @@ public class MazeRailHandler : MonoBehaviour, IDragHandler, IBeginDragHandler, I
             myRect.localPosition = GetLocalPos(currentNode);
             visitedNodes.Add(currentNode);
 
-            // NUEVO: Actualizar el nombre en el inicio
             if (LevelIntroManager.Instance != null)
             {
                 LevelIntroManager.Instance.UpdateDestination1(currentNode.nodeName);
+                LevelIntroManager.Instance.EvaluateRules(visitedNodes); // Evaluamos al inicio
             }
         }
 
         activeLineObj = Instantiate(pathLinePrefab, linesContainer);
         activeLineRect = activeLineObj.GetComponent<RectTransform>();
         activeLineObj.SetActive(false);
+    }
+
+    // NUEVO: Permite a otros scripts leer el historial de nodos
+    public List<RailNode> GetVisitedNodes()
+    {
+        return visitedNodes;
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -139,17 +145,18 @@ public class MazeRailHandler : MonoBehaviour, IDragHandler, IBeginDragHandler, I
                     DrawUILine(activeLineRect, GetLocalPos(currentNode), point);
                 }
 
-                if (t >= 0.99f)
+                if (t >= 0.99f) // CUANDO LLEGAS A UN PUNTO (Adelante o atrás)
                 {
                     if (isBacktracking)
                     {
                         Destroy(bakedLines.Pop());
                         visitedNodes.RemoveAt(visitedNodes.Count - 1);
 
-                        // NUEVO: Si retrocedemos, actualizar al destino anterior
+                        // RETROCESO: Actualizamos interfaz y reglas
                         if (LevelIntroManager.Instance != null)
                         {
                             LevelIntroManager.Instance.UpdateDestination1(targetNode.nodeName);
+                            LevelIntroManager.Instance.EvaluateRules(visitedNodes);
                         }
                     }
                     else
@@ -159,10 +166,11 @@ public class MazeRailHandler : MonoBehaviour, IDragHandler, IBeginDragHandler, I
                         bakedLines.Push(newBakedLine);
                         visitedNodes.Add(targetNode);
 
-                        // NUEVO: Al avanzar y llegar a un nuevo punto, actualizamos el panel
+                        // AVANCE: Actualizamos interfaz y reglas
                         if (LevelIntroManager.Instance != null)
                         {
                             LevelIntroManager.Instance.UpdateDestination1(targetNode.nodeName);
+                            LevelIntroManager.Instance.EvaluateRules(visitedNodes);
                         }
 
                         if (MazeLevelManager.Instance != null)
@@ -271,6 +279,11 @@ public class MazeRailHandler : MonoBehaviour, IDragHandler, IBeginDragHandler, I
         if (currentNode != null)
         {
             visitedNodes.Add(currentNode);
+        }
+
+        if (LevelIntroManager.Instance != null)
+        {
+            LevelIntroManager.Instance.EvaluateRules(visitedNodes); // Reseteamos las reglas
         }
 
         Debug.Log("Trail cleared for the new level!");

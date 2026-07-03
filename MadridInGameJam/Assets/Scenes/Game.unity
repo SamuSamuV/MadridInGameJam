@@ -331,6 +331,81 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 100637157}
   m_CullTransparentMesh: 1
+--- !u!1 &132153907
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 132153908}
+  - component: {fileID: 132153909}
+  - component: {fileID: 132153910}
+  m_Layer: 5
+  m_Name: Rule2Icon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &132153908
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 132153907}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 406173793}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 175.53, y: 0}
+  m_SizeDelta: {x: 90, y: 90}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &132153909
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 132153907}
+  m_CullTransparentMesh: 1
+--- !u!114 &132153910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 132153907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &137826537
 GameObject:
   m_ObjectHideFlags: 0
@@ -1028,6 +1103,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 132153908}
   - {fileID: 1620198050}
   m_Father: {fileID: 1510503143}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2060,7 +2136,7 @@ MonoBehaviour:
   startingFocusPoint: {fileID: 2095307121}
   popupPanel: {fileID: 820946416}
   popupImage: {fileID: 1412705124}
-  popupText: {fileID: 0}
+  popupText: {fileID: 984339118}
   levels:
   - levelName: Level1
     levelEndNode: {fileID: 1616467122}
@@ -2266,6 +2342,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1579421263}
   - {fileID: 1336749956}
   m_Father: {fileID: 1510503143}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4031,8 +4108,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -49.99997, y: 0}
+  m_SizeDelta: {x: -100.00006, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1336749957
 MonoBehaviour:
@@ -4315,12 +4392,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba8f447755add4945a5925dab6f4e30b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelIntroManager
+  backgroundUI: {fileID: 802769271}
   dialoguePanel: {fileID: 1242129951}
   dialogueText: {fileID: 1754526947}
   typeSpeed: 0.01
   rulesPanel: {fileID: 1510503140}
   rule1Text: {fileID: 1336749957}
   rule2Text: {fileID: 1620198051}
+  rule1StatusIcon: {fileID: 1579421265}
+  rule2StatusIcon: {fileID: 132153910}
+  checkSprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  crossSprite: {fileID: 21300000, guid: dbb2300aa8ec29844a6846ce1791ef34, type: 3}
   destinationsPanel: {fileID: 1385586637}
   destination1Text: {fileID: 2073061868}
   destination2Text: {fileID: 137826539}
@@ -4335,6 +4417,7 @@ MonoBehaviour:
   - levelName: Level1
     isFinalLevel: 0
     creditsSceneName: Credits
+    levelBackgroundSprite: {fileID: 21300000, guid: c4c559f10926c1040a0182e86da1a6f1, type: 3}
     dialogues:
     - "Buenas me llamo Isabella y reci\xE9n llego a Madrid. \xA1Es mi primera vez
       en la ciudad!\_"
@@ -4343,13 +4426,26 @@ MonoBehaviour:
     - "Al parecer la l\xEDnea 6 est\xE1 cerrada a estas horas y no puedo usarla."
     - "\xBFQu\xE9 deber\xEDa hacer para pasar por Goya y luego ir de ah\xED a Alonso
       Mart\xEDnez?\nRecuerda que no puedo usar la l\xEDnea 6."
-    rule1: Pasar por Goya
-    rule2: "No ir por la l\xEDnea 6"
+    rule1:
+      ruleText: Pasar por Goya
+      condition: 1
+      targetNodes:
+      - Goya
+    rule2:
+      ruleText: No usar la linea 6
+      condition: 2
+      targetNodes:
+      - "Avenida Am\xE9rica"
+      - "Diego de Le\xF3n"
+      - Goya
+      - Cuatro Caminos
+      - Nuevos Ministerios
     destination1: Nuevos Ministerios
     destination2: "Alonso Mart\xEDnez"
   - levelName: Level2
     isFinalLevel: 0
     creditsSceneName: Credits
+    levelBackgroundSprite: {fileID: 21300000, guid: c6b2716d6c844144aa712a0652927ff6, type: 3}
     dialogues:
     - "\xA1Menudo jetlag! Apenas he descansado, pero hoy tengo un d\xEDa bastante
       ajetreado.\_"
@@ -4361,13 +4457,24 @@ MonoBehaviour:
       a casa de mis amigos, que viven en San Bernardo."
     - "\xBFQu\xE9 deber\xEDa hacer para pasar por Retiro, Sol, Callao luego ir de
       ah\xED a San Bernardo? \xA1Recuerda que no quiero pasar por \xD3pera!"
-    rule1: Pasar por Retiro, Sol y Callao
-    rule2: "No pasar por \xD3pera"
+    rule1:
+      ruleText: Pasar por Retiro, Sol y Callao
+      condition: 1
+      targetNodes:
+      - Retiro
+      - Sol
+      - Callao
+    rule2:
+      ruleText: "No pasar por \xD3pera"
+      condition: 3
+      targetNodes:
+      - "\xD3pera"
     destination1: "Alonso Mart\xEDnez"
     destination2: San Bernardo
   - levelName: Level3
-    isFinalLevel: 0
+    isFinalLevel: 1
     creditsSceneName: Credits
+    levelBackgroundSprite: {fileID: 21300000, guid: 19a1ba4dcd0ee93459d283f1846d70d6, type: 3}
     dialogues:
     - "\xA1Ayer me lo pas\xE9 de lujo en casa de mis amigos! Qu\xE9 pena que hoy
       tenga que dejar Madrid.\_\_"
@@ -4381,8 +4488,18 @@ MonoBehaviour:
     - "\xBFQu\xE9 deber\xEDa hacer para pasar por Moncloa, \xD3pera y Sol para finalmente
       llegar a Atocha? \xA1Recuerda que cuantas menos paradas mejor y que Gran V\xEDa
       est\xE1 cerrada!"
-    rule1: "Pasar por Moncloa, \xD3pera y Callao"
-    rule2: No pasar por Gran Via
+    rule1:
+      ruleText: "Pasar por Moncloa, \xD3pera y Sol"
+      condition: 1
+      targetNodes:
+      - Moncloa
+      - "\xD3pera"
+      - Sol
+    rule2:
+      ruleText: "No pasar por Gran V\xEDa"
+      condition: 3
+      targetNodes:
+      - "Gran V\xEDa"
     destination1: San Bernardo
     destination2: Atocha
 --- !u!4 &1434309897
@@ -5142,6 +5259,81 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1577066386}
   m_CullTransparentMesh: 1
+--- !u!1 &1579421262
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1579421263}
+  - component: {fileID: 1579421264}
+  - component: {fileID: 1579421265}
+  m_Layer: 5
+  m_Name: Rule1Icon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1579421263
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1579421262}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 799373709}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 175.53, y: 0}
+  m_SizeDelta: {x: 90, y: 90}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &1579421264
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1579421262}
+  m_CullTransparentMesh: 1
+--- !u!114 &1579421265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1579421262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &1581355437
 GameObject:
   m_ObjectHideFlags: 0
@@ -5501,8 +5693,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -50, y: 0}
+  m_SizeDelta: {x: -100, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1620198051
 MonoBehaviour:
