@@ -533,7 +533,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 75f8916d300b95945947f5285b52214f, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -789,9 +789,6 @@ MonoBehaviour:
   tooltipObject: {fileID: 1777402462}
   tooltipText: {fileID: 1777402464}
   nodeName: Parada Desconocida
-  stationColors:
-  - {r: 0.2392157, g: 0.6901961, b: 0.9058824, a: 1}
-  - {r: 0.5058824, g: 0.73333335, b: 0.16470589, a: 1}
   connections:
   - {fileID: 528771128}
   - {fileID: 1616467122}
@@ -992,10 +989,6 @@ MonoBehaviour:
   tooltipObject: {fileID: 1581355437}
   tooltipText: {fileID: 1581355439}
   nodeName: Parada Desconocida
-  stationColors:
-  - {r: 0.86666673, g: 0.1254902, b: 0.09411766, a: 1}
-  - {r: 0.6627451, g: 0.34901962, b: 0.15686275, a: 1}
-  - {r: 0.47058827, g: 0.49411768, b: 0.52156866, a: 1}
   connections:
   - {fileID: 1819969699}
   - {fileID: 1616467122}
@@ -1366,7 +1359,6 @@ GameObject:
   - component: {fileID: 396002509}
   - component: {fileID: 396002511}
   - component: {fileID: 396002510}
-  - component: {fileID: 396002512}
   m_Layer: 5
   m_Name: DestinationProxyColor2
   m_TagString: Untagged
@@ -1406,7 +1398,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.63137245, g: 0, b: 1, a: 1}
+  m_Color: {r: 0.63178635, g: 0, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1431,6 +1423,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 396002508}
   m_CullTransparentMesh: 1
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 --- !u!114 &396002512
@@ -1536,6 +1529,8 @@ CanvasRenderer:
 >>>>>>> 5a0bf4b5e4413101b266b07a943b2d64f1e7fa45
 =======
 >>>>>>> parent of 7ba1a32 (Color Parada)
+=======
+>>>>>>> parent of 15eb2f3 (Game hecho)
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -2193,9 +2188,6 @@ MonoBehaviour:
   tooltipObject: {fileID: 1777402462}
   tooltipText: {fileID: 1777402464}
   nodeName: Parada Desconocida
-  stationColors:
-  - {r: 0.2392157, g: 0.6901961, b: 0.9058824, a: 1}
-  - {r: 0, g: 0.27058825, b: 0.5647059, a: 1}
   connections:
   - {fileID: 1304770976}
   - {fileID: 1616467122}
@@ -2669,11 +2661,6 @@ MonoBehaviour:
   tooltipObject: {fileID: 1434396931}
   tooltipText: {fileID: 1434396933}
   nodeName: Parada Desconocida
-  stationColors:
-  - {r: 0.9333334, g: 0.4784314, b: 0.04705883, a: 1}
-  - {r: 0.6627451, g: 0.34901962, b: 0.15686275, a: 1}
-  - {r: 0.59607846, g: 0.25882354, b: 0.5529412, a: 1}
-  - {r: 0.47058827, g: 0.49411768, b: 0.52156866, a: 1}
   connections:
   - {fileID: 815809068}
 --- !u!1 &672149642
@@ -2730,9 +2717,6 @@ MonoBehaviour:
   tooltipObject: {fileID: 1777402462}
   tooltipText: {fileID: 1777402464}
   nodeName: Parada Desconocida
-  stationColors:
-  - {r: 0.5921569, g: 0.30588236, b: 0.09019608, a: 1}
-  - {r: 0.86666673, g: 0.1254902, b: 0.09411766, a: 1}
   connections:
   - {fileID: 1489512799}
   - {fileID: 1304770976}
@@ -2963,17 +2947,6 @@ MonoBehaviour:
     levelEndNode: {fileID: 672149644}
     nextLevelContainer: {fileID: 431520105}
     isFinalLevel: 0
-    targetZoomScale: 0.7
-    cameraFocusPoint: {fileID: 1809527733}
-    popupOptions:
-    - image: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-      text: FRIO
-    - image: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
-      text: PATA
-  - levelName: Level3
-    levelEndNode: {fileID: 810331643}
-    nextLevelContainer: {fileID: 431520105}
-    isFinalLevel: 1
     targetZoomScale: 0.7
     cameraFocusPoint: {fileID: 1809527733}
     popupOptions:
@@ -3399,8 +3372,6 @@ MonoBehaviour:
   tooltipObject: {fileID: 1777402462}
   tooltipText: {fileID: 1777402464}
   nodeName: Parada Desconocida
-  stationColors:
-  - {r: 0.2392157, g: 0.6901961, b: 0.9058824, a: 1}
   connections:
   - {fileID: 1568444604}
 --- !u!114 &810331644
@@ -3533,9 +3504,6 @@ MonoBehaviour:
   tooltipObject: {fileID: 1968857204}
   tooltipText: {fileID: 1968857206}
   nodeName: Parada Desconocida
-  stationColors:
-  - {r: 0, g: 0.27058825, b: 0.5647059, a: 1}
-  - {r: 0.47058827, g: 0.49411768, b: 0.52156866, a: 1}
   connections:
   - {fileID: 1532635235}
   - {fileID: 1783333228}
@@ -3791,10 +3759,6 @@ MonoBehaviour:
   tooltipObject: {fileID: 1777402462}
   tooltipText: {fileID: 1777402464}
   nodeName: Parada Desconocida
-  stationColors:
-  - {r: 0.9960785, g: 0.8000001, b: 0, a: 1}
-  - {r: 0.5921569, g: 0.30588236, b: 0.09019608, a: 1}
-  - {r: 0.47058827, g: 0.49411768, b: 0.52156866, a: 1}
   connections:
   - {fileID: 672149644}
   - {fileID: 1732289955}
@@ -3867,7 +3831,6 @@ GameObject:
   - component: {fileID: 891153547}
   - component: {fileID: 891153549}
   - component: {fileID: 891153548}
-  - component: {fileID: 891153550}
   m_Layer: 5
   m_Name: DestinationProxyColor1
   m_TagString: Untagged
@@ -3932,32 +3895,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 891153546}
   m_CullTransparentMesh: 1
---- !u!114 &891153550
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 891153546}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.HorizontalLayoutGroup
-  m_Padding:
-    m_Left: 0
-    m_Right: 0
-    m_Top: 0
-    m_Bottom: 0
-  m_ChildAlignment: 0
-  m_Spacing: 0
-  m_ChildForceExpandWidth: 1
-  m_ChildForceExpandHeight: 1
-  m_ChildControlWidth: 1
-  m_ChildControlHeight: 1
-  m_ChildScaleWidth: 0
-  m_ChildScaleHeight: 0
-  m_ReverseArrangement: 0
 --- !u!1 &897451610
 GameObject:
   m_ObjectHideFlags: 0
@@ -3992,9 +3929,6 @@ MonoBehaviour:
   tooltipObject: {fileID: 1069778937}
   tooltipText: {fileID: 1069778939}
   nodeName: Parada Desconocida
-  stationColors:
-  - {r: 0.5058824, g: 0.73333335, b: 0.16470589, a: 1}
-  - {r: 0.59607846, g: 0.25882354, b: 0.5529412, a: 1}
   connections:
   - {fileID: 632925413}
   - {fileID: 1819969699}
@@ -5315,8 +5249,6 @@ MonoBehaviour:
   tooltipObject: {fileID: 1777402462}
   tooltipText: {fileID: 1777402464}
   nodeName: Parada Desconocida
-  stationColors:
-  - {r: 0.86666673, g: 0.1254902, b: 0.09411766, a: 1}
   connections:
   - {fileID: 1568444604}
   - {fileID: 1640481145}
@@ -5392,9 +5324,6 @@ MonoBehaviour:
   tooltipObject: {fileID: 1777402462}
   tooltipText: {fileID: 1777402464}
   nodeName: Parada Desconocida
-  stationColors:
-  - {r: 0.86666673, g: 0.1254902, b: 0.09411766, a: 1}
-  - {r: 0.5058824, g: 0.73333335, b: 0.16470589, a: 1}
   connections:
   - {fileID: 1568444604}
 --- !u!114 &1292962920
@@ -5509,9 +5438,6 @@ MonoBehaviour:
   tooltipObject: {fileID: 1990234138}
   tooltipText: {fileID: 1990234140}
   nodeName: Parada Desconocida
-  stationColors:
-  - {r: 0.2392157, g: 0.6901961, b: 0.9058824, a: 1}
-  - {r: 0.6627451, g: 0.34901962, b: 0.15686275, a: 1}
   connections:
   - {fileID: 1616467122}
   - {fileID: 1532635235}
@@ -5713,8 +5639,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 32
-  m_fontSizeBase: 32
+  m_fontSize: 36
+  m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -5958,13 +5884,11 @@ MonoBehaviour:
   rule2Text: {fileID: 1620198051}
   rule1StatusIcon: {fileID: 1579421265}
   rule2StatusIcon: {fileID: 132153910}
-  checkSprite: {fileID: 21300000, guid: 2cd8bacfc2f3aec4b9030ebea7cfe5be, type: 3}
-  crossSprite: {fileID: 21300000, guid: 75f8916d300b95945947f5285b52214f, type: 3}
+  checkSprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  crossSprite: {fileID: 21300000, guid: dbb2300aa8ec29844a6846ce1791ef34, type: 3}
   destinationsPanel: {fileID: 1385586637}
   destination1Text: {fileID: 2073061868}
   destination2Text: {fileID: 137826539}
-  dest1ColorContainer: {fileID: 891153547}
-  dest2ColorContainer: {fileID: 396002509}
   cameraViewport: {fileID: 836805379}
   bottomBar: {fileID: 496001295}
   expandAmount: 390
@@ -5974,6 +5898,7 @@ MonoBehaviour:
   ladyAnimSpeed: 5
   levelConfigs:
   - levelName: Level1
+    isFinalLevel: 0
     creditsSceneName: Credits
     levelBackgroundSprite: {fileID: 21300000, guid: c4c559f10926c1040a0182e86da1a6f1, type: 3}
     dialogues:
@@ -5984,7 +5909,6 @@ MonoBehaviour:
     - "Al parecer la l\xEDnea 6 est\xE1 cerrada a estas horas y no puedo usarla."
     - "\xBFQu\xE9 deber\xEDa hacer para pasar por Goya y luego ir de ah\xED a Alonso
       Mart\xEDnez?\nRecuerda que no puedo usar la l\xEDnea 6."
-    outroDialogues: []
     rule1:
       ruleText: Pasar por Goya
       condition: 1
@@ -6001,11 +5925,8 @@ MonoBehaviour:
       - Nuevos Ministerios
     destination1: Nuevos Ministerios
     destination2: "Alonso Mart\xEDnez"
-    destination2Colors:
-    - {r: 0.5058824, g: 0.73333335, b: 0.16470589, a: 1}
-    - {r: 0.6627451, g: 0.34901962, b: 0.15686275, a: 1}
-    - {r: 0, g: 0.27058825, b: 0.5647059, a: 1}
   - levelName: Level2
+    isFinalLevel: 0
     creditsSceneName: Credits
     levelBackgroundSprite: {fileID: 21300000, guid: c6b2716d6c844144aa712a0652927ff6, type: 3}
     dialogues:
@@ -6019,7 +5940,6 @@ MonoBehaviour:
       a casa de mis amigos, que viven en San Bernardo."
     - "\xBFQu\xE9 deber\xEDa hacer para pasar por Retiro, Sol, Callao luego ir de
       ah\xED a San Bernardo? \xA1Recuerda que no quiero pasar por \xD3pera!"
-    outroDialogues: []
     rule1:
       ruleText: Pasar por Retiro, Sol y Callao
       condition: 1
@@ -6034,14 +5954,11 @@ MonoBehaviour:
       - "\xD3pera"
     destination1: "Alonso Mart\xEDnez"
     destination2: San Bernardo
-    destination2Colors:
-    - {r: 0.5882353, g: 0.30588236, b: 0.09411766, a: 1}
-    - {r: 0.86666673, g: 0.1254902, b: 0.09411766, a: 1}
   - levelName: Level3
+    isFinalLevel: 1
     creditsSceneName: Credits
     levelBackgroundSprite: {fileID: 21300000, guid: 19a1ba4dcd0ee93459d283f1846d70d6, type: 3}
-    dialogues: []
-    outroDialogues:
+    dialogues:
     - "\xA1Ayer me lo pas\xE9 de lujo en casa de mis amigos! Qu\xE9 pena que hoy
       tenga que dejar Madrid.\_\_"
     - "Antes de irme tengo que hacer unas \xFAltimas visitas importantes. \xA1Y apenas
@@ -6068,8 +5985,6 @@ MonoBehaviour:
       - "Gran V\xEDa"
     destination1: San Bernardo
     destination2: Atocha
-    destination2Colors:
-    - {r: 0.2392157, g: 0.6901961, b: 0.9058824, a: 1}
 --- !u!4 &1434309897
 Transform:
   m_ObjectHideFlags: 0
@@ -6530,9 +6445,6 @@ MonoBehaviour:
   tooltipObject: {fileID: 100637157}
   tooltipText: {fileID: 100637159}
   nodeName: Parada Desconocida
-  stationColors:
-  - {r: 0.9333334, g: 0.4784314, b: 0.04705883, a: 1}
-  - {r: 0.86666673, g: 0.1254902, b: 0.09411766, a: 1}
   connections:
   - {fileID: 1532635235}
 --- !u!1 &1510503140
@@ -6707,10 +6619,6 @@ MonoBehaviour:
   tooltipObject: {fileID: 1777402462}
   tooltipText: {fileID: 1777402464}
   nodeName: Parada Desconocida
-  stationColors:
-  - {r: 0.47058827, g: 0.49411768, b: 0.52156866, a: 1}
-  - {r: 0.86666673, g: 0.1254902, b: 0.09411766, a: 1}
-  - {r: 0.2392157, g: 0.6901961, b: 0.9058824, a: 1}
   connections: []
 --- !u!1 &1565569427
 GameObject:
@@ -6821,10 +6729,6 @@ MonoBehaviour:
   tooltipObject: {fileID: 1777402462}
   tooltipText: {fileID: 1777402464}
   nodeName: Parada Desconocida
-  stationColors:
-  - {r: 0.9960785, g: 0.8000001, b: 0, a: 1}
-  - {r: 0.2392157, g: 0.6901961, b: 0.9058824, a: 1}
-  - {r: 0.86666673, g: 0.1254902, b: 0.09411766, a: 1}
   connections:
   - {fileID: 272656463}
 --- !u!114 &1568444605
@@ -6939,8 +6843,6 @@ MonoBehaviour:
   tooltipObject: {fileID: 1777402462}
   tooltipText: {fileID: 1777402464}
   nodeName: Parada Desconocida
-  stationColors:
-  - {r: 0.86666673, g: 0.1254902, b: 0.09411766, a: 1}
   connections:
   - {fileID: 1292962919}
   - {fileID: 672149644}
@@ -7047,7 +6949,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2cd8bacfc2f3aec4b9030ebea7cfe5be, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7248,9 +7150,6 @@ MonoBehaviour:
   tooltipObject: {fileID: 1777402462}
   tooltipText: {fileID: 1777402464}
   nodeName: Parada Desconocida
-  stationColors:
-  - {r: 0.47058827, g: 0.49411768, b: 0.52156866, a: 1}
-  - {r: 0.9960785, g: 0.8000001, b: 0, a: 1}
   connections:
   - {fileID: 2029970851}
   - {fileID: 868255960}
@@ -7384,10 +7283,6 @@ MonoBehaviour:
   tooltipObject: {fileID: 608086938}
   tooltipText: {fileID: 608086940}
   nodeName: Parada Desconocida
-  stationColors:
-  - {r: 0.5058824, g: 0.73333335, b: 0.16470589, a: 1}
-  - {r: 0.6627451, g: 0.34901962, b: 0.15686275, a: 1}
-  - {r: 0, g: 0.27058825, b: 0.5647059, a: 1}
   connections:
   - {fileID: 1783333228}
 --- !u!1 &1620198049
@@ -7474,8 +7369,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 32
-  m_fontSizeBase: 32
+  m_fontSize: 36
+  m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -7718,9 +7613,6 @@ MonoBehaviour:
   tooltipObject: {fileID: 431758714}
   tooltipText: {fileID: 431758716}
   nodeName: Parada Desconocida
-  stationColors:
-  - {r: 0.86666673, g: 0.1254902, b: 0.09411766, a: 1}
-  - {r: 0.59607846, g: 0.25882354, b: 0.5529412, a: 1}
   connections:
   - {fileID: 897451611}
   - {fileID: 316055244}
@@ -8029,9 +7921,6 @@ MonoBehaviour:
   tooltipObject: {fileID: 1777402462}
   tooltipText: {fileID: 1777402464}
   nodeName: Parada Desconocida
-  stationColors:
-  - {r: 0.9960785, g: 0.8000001, b: 0, a: 1}
-  - {r: 0, g: 0.27058825, b: 0.5647059, a: 1}
   connections:
   - {fileID: 528771128}
   - {fileID: 1902643118}
@@ -8209,6 +8098,81 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1754526945}
+  m_CullTransparentMesh: 1
+--- !u!1 &1765375440
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1765375441}
+  - component: {fileID: 1765375443}
+  - component: {fileID: 1765375442}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1765375441
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1765375440}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 2111839633}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 55}
+  m_SizeDelta: {x: 80, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1765375442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1765375440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: c20137cd31b217f44b64b8ca828a17d9, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1765375443
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1765375440}
   m_CullTransparentMesh: 1
 --- !u!1 &1777402462
 GameObject:
@@ -8439,9 +8403,6 @@ MonoBehaviour:
   tooltipObject: {fileID: 1708324373}
   tooltipText: {fileID: 1708324375}
   nodeName: Parada Desconocida
-  stationColors:
-  - {r: 0.9333334, g: 0.4784314, b: 0.04705883, a: 1}
-  - {r: 0, g: 0.27058825, b: 0.5647059, a: 1}
   connections:
   - {fileID: 1489512799}
   - {fileID: 632925413}
@@ -8651,10 +8612,6 @@ MonoBehaviour:
   tooltipObject: {fileID: 751937070}
   tooltipText: {fileID: 751937072}
   nodeName: Parada Desconocida
-  stationColors:
-  - {r: 0.47058827, g: 0.49411768, b: 0.52156866, a: 1}
-  - {r: 0.6627451, g: 0.34901962, b: 0.15686275, a: 1}
-  - {r: 0.5058824, g: 0.73333335, b: 0.16470589, a: 1}
   connections:
   - {fileID: 632925413}
 --- !u!114 &1819969700
@@ -8814,9 +8771,6 @@ MonoBehaviour:
   tooltipObject: {fileID: 1777402462}
   tooltipText: {fileID: 1777402464}
   nodeName: Parada Desconocida
-  stationColors:
-  - {r: 0.9960785, g: 0.8000001, b: 0, a: 1}
-  - {r: 0.5058824, g: 0.73333335, b: 0.16470589, a: 1}
   connections:
   - {fileID: 1568444604}
   - {fileID: 272656463}
@@ -9335,9 +9289,6 @@ MonoBehaviour:
   tooltipObject: {fileID: 1777402462}
   tooltipText: {fileID: 1777402464}
   nodeName: Parada Desconocida
-  stationColors:
-  - {r: 0.47058827, g: 0.49411768, b: 0.52156866, a: 1}
-  - {r: 0.9333334, g: 0.4784314, b: 0.04705883, a: 1}
   connections:
   - {fileID: 1532635235}
   - {fileID: 1489512799}
@@ -9719,7 +9670,6 @@ GameObject:
   - component: {fileID: 2111839633}
   - component: {fileID: 2111839636}
   - component: {fileID: 2111839637}
-  - component: {fileID: 2111839638}
   m_Layer: 5
   m_Name: Player
   m_TagString: Untagged
@@ -9738,14 +9688,15 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
-  m_Children: []
+  m_Children:
+  - {fileID: 1765375441}
   m_Father: {fileID: 301224024}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 57, y: 334}
+  m_AnchoredPosition: {x: 57, y: 384}
   m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2111839636
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -9769,6 +9720,7 @@ MonoBehaviour:
   startingNode: {fileID: 815809068}
   pathLinePrefab: {fileID: 7072841136742571813, guid: fdc42c9b5b7026d4ea40e86b8d2a63d2, type: 3}
   linesContainer: {fileID: 1104355971}
+<<<<<<< HEAD
 <<<<<<< HEAD
   followSpeed: 25
 <<<<<<< HEAD
@@ -9813,6 +9765,10 @@ MonoBehaviour:
 >>>>>>> parent of 7ba1a32 (Color Parada)
   maxDragDistance: 250
 >>>>>>> 5a0bf4b5e4413101b266b07a943b2d64f1e7fa45
+=======
+  snapSpeed: 15
+  maxDragDistance: 250
+>>>>>>> parent of 15eb2f3 (Game hecho)
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
