@@ -9,7 +9,7 @@ public class MainMenuManager : MonoBehaviour
 
     public void LoadScene(string SceneName)
     {
-        SceneManager.LoadScene(SceneName);
+        SceneTransitionManager.Instance.LoadLevel(SceneName);
     }
 
     public void OpenSettings()

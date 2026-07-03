@@ -30,6 +30,14 @@ public class MazeRailHandler : MonoBehaviour, IDragHandler, IBeginDragHandler, I
     private bool isDragging = false;
     private bool dragCanceled = false;
 
+    public static MazeRailHandler Instance;
+
+    private void Awake()
+    {
+        if (Instance == null) Instance = this;
+        else Destroy(gameObject);
+    }
+
     private void Start()
     {
         myRect = GetComponent<RectTransform>();
@@ -235,5 +243,22 @@ public class MazeRailHandler : MonoBehaviour, IDragHandler, IBeginDragHandler, I
         percentage = Vector2.Dot(ap, ab) / magnitudeAB;
         percentage = Mathf.Clamp01(percentage);
         projectedPoint = start + ab * percentage;
+    }
+
+    public void ClearTrail()
+    {
+        while (bakedLines.Count > 0)
+        {
+            Destroy(bakedLines.Pop());
+        }
+
+        visitedNodes.Clear();
+
+        if (currentNode != null)
+        {
+            visitedNodes.Add(currentNode);
+        }
+
+        Debug.Log("Trail cleared for the new level!");
     }
 }

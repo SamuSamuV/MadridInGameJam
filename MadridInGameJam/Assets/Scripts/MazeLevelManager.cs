@@ -3,25 +3,32 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 
 [System.Serializable]
+public class PopupData
+{
+    public Sprite image;
+    [TextArea(3, 5)]
+    public string text;
+}
+
+[System.Serializable]
 public class MazeLevel
 {
     public string levelName;
 
-    [Header("Progression Triggers")]
+    [Header("Progression")]
     public RailNode levelEndNode;
     public GameObject nextLevelContainer;
 
-    [Header("Camera Animation Targets")]
-    [Tooltip("Target scale for the zoom out (e.g., 0.7)")]
+    [Header("Game Ending")]
+    [Tooltip("Check this so the game knows it should show the final popup even if there is no next map")]
+    public bool isFinalLevel = false;
+
+    [Header("Camera Automation")]
     public float targetZoomScale = 1f;
+    public RectTransform cameraFocusPoint;
 
-    [Tooltip("Target X and Y position to center the new area")]
-    public Vector2 targetPosition;
-
-    [Header("Completion Popup Customization")]
-    public Sprite completionImage;
-    [TextArea(3, 5)]
-    public string completionText;
+    [Header("Random Popups")]
+    public List<PopupData> popupOptions;
 }
 
 public class MazeLevelManager : MonoBehaviour
@@ -30,18 +37,22 @@ public class MazeLevelManager : MonoBehaviour
 
     [Header("Maze Components")]
     public RectTransform mazeContainer;
+    public RectTransform cameraViewport;
     public float transitionSpeed = 2f;
+
+    [Header("Initial Camera Setup")]
+    public RectTransform startingFocusPoint;
 
     [Header("UI Popup Panel")]
     public GameObject popupPanel;
     public Image popupImage;
-    public TMPro.TextMeshProUGUI popupText;
+    public Text popupText;
 
     [Header("Progression Levels")]
     public List<MazeLevel> levels;
 
     private float currentTargetScale = 1f;
-    private Vector2 currentTargetPosition;
+    private RectTransform currentFocusPoint;
     private MazeLevel pendingLevelToUnlock;
 
     private void Awake()
@@ -53,7 +64,7 @@ public class MazeLevelManager : MonoBehaviour
     private void Start()
     {
         currentTargetScale = mazeContainer.localScale.x;
-        currentTargetPosition = mazeContainer.localPosition;
+        currentFocusPoint = startingFocusPoint;
 
         if (popupPanel != null) popupPanel.SetActive(false);
     }
@@ -62,9 +73,9 @@ public class MazeLevelManager : MonoBehaviour
     {
         foreach (MazeLevel level in levels)
         {
-            if (level.levelEndNode == reachedNode && level.nextLevelContainer != null)
+            if (level.levelEndNode == reachedNode)
             {
-                if (!level.nextLevelContainer.activeSelf)
+                if (level.isFinalLevel || (level.nextLevelContainer != null && !level.nextLevelContainer.activeSelf))
                 {
                     ShowCompletionPopup(level);
                 }
@@ -76,8 +87,14 @@ public class MazeLevelManager : MonoBehaviour
     {
         pendingLevelToUnlock = level;
 
-        if (popupImage != null) popupImage.sprite = level.completionImage;
-        if (popupText != null) popupText.text = level.completionText;
+        if (level.popupOptions != null && level.popupOptions.Count > 0)
+        {
+            int randomIndex = Random.Range(0, level.popupOptions.Count);
+            PopupData selectedPopup = level.popupOptions[randomIndex];
+
+            if (popupImage != null) popupImage.sprite = selectedPopup.image;
+            if (popupText != null) popupText.text = selectedPopup.text;
+        }
 
         popupPanel.SetActive(true);
     }
@@ -90,17 +107,25 @@ public class MazeLevelManager : MonoBehaviour
         {
             UnlockLevel(pendingLevelToUnlock);
             pendingLevelToUnlock = null;
+
+            if (MazeRailHandler.Instance != null)
+            {
+                MazeRailHandler.Instance.ClearTrail();
+            }
+
+            if (LevelIntroManager.Instance != null)
+            {
+                LevelIntroManager.Instance.PlayNextLevelIntro();
+            }
         }
     }
 
     private void UnlockLevel(MazeLevel level)
     {
-        level.nextLevelContainer.SetActive(true);
+        if (level.nextLevelContainer != null) level.nextLevelContainer.SetActive(true);
 
         currentTargetScale = level.targetZoomScale;
-        currentTargetPosition = level.targetPosition;
-
-        Debug.Log($"Unlocked Level: {level.levelName}! Animating camera to Scale {currentTargetScale} and Pos {currentTargetPosition}");
+        if (level.cameraFocusPoint != null) currentFocusPoint = level.cameraFocusPoint;
     }
 
     private void Update()
@@ -108,6 +133,16 @@ public class MazeLevelManager : MonoBehaviour
         Vector3 targetScaleVec = new Vector3(currentTargetScale, currentTargetScale, 1f);
         mazeContainer.localScale = Vector3.Lerp(mazeContainer.localScale, targetScaleVec, Time.deltaTime * transitionSpeed);
 
-        mazeContainer.localPosition = Vector3.Lerp(mazeContainer.localPosition, (Vector3)currentTargetPosition, Time.deltaTime * transitionSpeed);
+        if (currentFocusPoint != null && cameraViewport != null)
+        {
+            Vector2 viewportCenter = new Vector2(
+                (0.5f - cameraViewport.pivot.x) * cameraViewport.rect.width,
+                (0.5f - cameraViewport.pivot.y) * cameraViewport.rect.height
+            );
+
+            Vector2 focusLocalPos = mazeContainer.InverseTransformPoint(currentFocusPoint.position);
+            Vector2 targetPos = viewportCenter - (focusLocalPos * currentTargetScale);
+            mazeContainer.localPosition = Vector3.Lerp(mazeContainer.localPosition, (Vector3)targetPos, Time.deltaTime * transitionSpeed);
+        }
     }
 }
