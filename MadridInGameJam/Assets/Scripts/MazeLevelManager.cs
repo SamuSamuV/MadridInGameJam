@@ -108,11 +108,8 @@ public class MazeLevelManager : MonoBehaviour
         {
             if (pendingLevelToUnlock.isFinalLevel)
             {
-                return; // Si es el nivel final, paramos y dejamos que la chica actúe
+                return;
             }
-
-            // ATENCIÓN: ¡Aquí ya NO aplicamos el UnlockLevel!
-            // Solo limpiamos el rastro y avisamos a la chica para que empiece su show.
 
             if (MazeRailHandler.Instance != null)
             {
@@ -126,8 +123,6 @@ public class MazeLevelManager : MonoBehaviour
         }
     }
 
-    // --- NUEVA FUNCIÓN ---
-    // La llamará la chica justo cuando el mapa se expanda
     public void TriggerPendingLevelUnlock()
     {
         if (pendingLevelToUnlock != null)
@@ -141,18 +136,15 @@ public class MazeLevelManager : MonoBehaviour
     {
         if (level.nextLevelContainer != null) level.nextLevelContainer.SetActive(true);
 
-        // Actualizamos los objetivos matemáticos de Zoom y X/Y
         currentTargetScale = level.targetZoomScale;
         if (level.cameraFocusPoint != null) currentFocusPoint = level.cameraFocusPoint;
     }
 
     private void Update()
     {
-        // 1. Suavizado del Zoom
         Vector3 targetScaleVec = new Vector3(currentTargetScale, currentTargetScale, 1f);
         mazeContainer.localScale = Vector3.Lerp(mazeContainer.localScale, targetScaleVec, Time.deltaTime * transitionSpeed);
 
-        // 2. Cálculo automático del X/Y (Paneo)
         if (currentFocusPoint != null && cameraViewport != null)
         {
             Vector2 viewportCenter = new Vector2(
@@ -160,7 +152,6 @@ public class MazeLevelManager : MonoBehaviour
                 (0.5f - cameraViewport.pivot.y) * cameraViewport.rect.height
             );
 
-            // IMPORTANTE: currentFocusPoint debe ser hijo de mazeContainer para que esto sea exacto
             Vector2 focusLocalPos = mazeContainer.InverseTransformPoint(currentFocusPoint.position);
             Vector2 targetPos = viewportCenter - (focusLocalPos * currentTargetScale);
 
