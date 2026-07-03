@@ -9,6 +9,10 @@ public class RailNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     [HideInInspector] public TextMeshProUGUI tooltipText;
     [HideInInspector] public string nodeName;
 
+    [Header("Station Setup")]
+    [Tooltip("Añade aquí los colores de esta parada (1 color, 2 colores, 3...)")]
+    public List<Color> stationColors = new List<Color> { Color.white };
+
     [Header("Connections")]
     [Tooltip("Drag the nodes you can travel to from this point")]
     public List<RailNode> connections;
