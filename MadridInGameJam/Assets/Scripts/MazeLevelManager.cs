@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using TMPro;
 
 [System.Serializable]
 public class PopupData
@@ -20,11 +21,11 @@ public class MazeLevel
     public GameObject nextLevelContainer;
 
     [Header("Game Ending")]
-    [Tooltip("Check this so the game knows it should show the final popup even if there is no next map")]
     public bool isFinalLevel = false;
 
     [Header("Camera Automation")]
     public float targetZoomScale = 1f;
+    [Tooltip("El objeto vacío dentro del mapa que marcará el centro de la cámara")]
     public RectTransform cameraFocusPoint;
 
     [Header("Random Popups")]
@@ -46,7 +47,7 @@ public class MazeLevelManager : MonoBehaviour
     [Header("UI Popup Panel")]
     public GameObject popupPanel;
     public Image popupImage;
-    public Text popupText;
+    public TextMeshProUGUI popupText;
 
     [Header("Progression Levels")]
     public List<MazeLevel> levels;
@@ -105,8 +106,13 @@ public class MazeLevelManager : MonoBehaviour
 
         if (pendingLevelToUnlock != null)
         {
-            UnlockLevel(pendingLevelToUnlock);
-            pendingLevelToUnlock = null;
+            if (pendingLevelToUnlock.isFinalLevel)
+            {
+                return; // Si es el nivel final, paramos y dejamos que la chica actúe
+            }
+
+            // ATENCIÓN: ¡Aquí ya NO aplicamos el UnlockLevel!
+            // Solo limpiamos el rastro y avisamos a la chica para que empiece su show.
 
             if (MazeRailHandler.Instance != null)
             {
@@ -120,19 +126,33 @@ public class MazeLevelManager : MonoBehaviour
         }
     }
 
+    // --- NUEVA FUNCIÓN ---
+    // La llamará la chica justo cuando el mapa se expanda
+    public void TriggerPendingLevelUnlock()
+    {
+        if (pendingLevelToUnlock != null)
+        {
+            UnlockLevel(pendingLevelToUnlock);
+            pendingLevelToUnlock = null;
+        }
+    }
+
     private void UnlockLevel(MazeLevel level)
     {
         if (level.nextLevelContainer != null) level.nextLevelContainer.SetActive(true);
 
+        // Actualizamos los objetivos matemáticos de Zoom y X/Y
         currentTargetScale = level.targetZoomScale;
         if (level.cameraFocusPoint != null) currentFocusPoint = level.cameraFocusPoint;
     }
 
     private void Update()
     {
+        // 1. Suavizado del Zoom
         Vector3 targetScaleVec = new Vector3(currentTargetScale, currentTargetScale, 1f);
         mazeContainer.localScale = Vector3.Lerp(mazeContainer.localScale, targetScaleVec, Time.deltaTime * transitionSpeed);
 
+        // 2. Cálculo automático del X/Y (Paneo)
         if (currentFocusPoint != null && cameraViewport != null)
         {
             Vector2 viewportCenter = new Vector2(
@@ -140,8 +160,10 @@ public class MazeLevelManager : MonoBehaviour
                 (0.5f - cameraViewport.pivot.y) * cameraViewport.rect.height
             );
 
+            // IMPORTANTE: currentFocusPoint debe ser hijo de mazeContainer para que esto sea exacto
             Vector2 focusLocalPos = mazeContainer.InverseTransformPoint(currentFocusPoint.position);
             Vector2 targetPos = viewportCenter - (focusLocalPos * currentTargetScale);
+
             mazeContainer.localPosition = Vector3.Lerp(mazeContainer.localPosition, (Vector3)targetPos, Time.deltaTime * transitionSpeed);
         }
     }

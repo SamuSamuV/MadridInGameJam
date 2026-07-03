@@ -9,9 +9,7 @@ public class LevelConfig
     public string levelName;
 
     [Header("Game Ending")]
-    [Tooltip("Check this if finishing these dialogues should roll the credits")]
     public bool isFinalLevel = false;
-    [Tooltip("The exact name of your Credits Scene")]
     public string creditsSceneName = "Credits";
 
     [Header("Level Specific Dialogues")]
@@ -154,7 +152,6 @@ public class LevelIntroManager : MonoBehaviour
             dialogueText.text = levelConfigs[currentLevelIndex].dialogues[currentLine];
             isTyping = false;
         }
-
         else
         {
             currentLine++;
@@ -170,7 +167,6 @@ public class LevelIntroManager : MonoBehaviour
         {
             typingCoroutine = StartCoroutine(TypeLine(currentDialogues[currentLine]));
         }
-
         else
         {
             if (levelConfigs[currentLevelIndex].isFinalLevel)
@@ -181,13 +177,11 @@ public class LevelIntroManager : MonoBehaviour
                 {
                     SceneTransitionManager.Instance.LoadLevel(levelConfigs[currentLevelIndex].creditsSceneName);
                 }
-
                 else
                 {
                     UnityEngine.SceneManagement.SceneManager.LoadScene(levelConfigs[currentLevelIndex].creditsSceneName);
                 }
             }
-
             else
             {
                 isAnimatingExit = true;
@@ -233,6 +227,14 @@ public class LevelIntroManager : MonoBehaviour
         }
 
         dialoguePanel.gameObject.SetActive(false);
+
+        // --- ¡EL FIX MAESTRO! ---
+        // Justo antes de que el telón se abra revelando el nuevo mapa,
+        // le decimos al MazeLevelManager que actualice su objetivo de cámara.
+        if (MazeLevelManager.Instance != null)
+        {
+            MazeLevelManager.Instance.TriggerPendingLevelUnlock();
+        }
 
         if (cameraViewport != null && bottomBar != null)
         {
