@@ -136,8 +136,10 @@ public class LevelIntroManager : MonoBehaviour
     {
         if (levelIndex < levelConfigs.Count)
         {
-            destination1Text.text = levelConfigs[levelIndex].destination1;
+            // Solo actualizamos el Destino 2 (La meta final del nivel)
+            // El Destino 1 lo controla el jugador desde MazeRailHandler al llegar a una parada
             destination2Text.text = levelConfigs[levelIndex].destination2;
+
             if (destinationsPanel != null) destinationsPanel.SetActive(true);
         }
     }
@@ -228,9 +230,6 @@ public class LevelIntroManager : MonoBehaviour
 
         dialoguePanel.gameObject.SetActive(false);
 
-        // --- ¡EL FIX MAESTRO! ---
-        // Justo antes de que el telón se abra revelando el nuevo mapa,
-        // le decimos al MazeLevelManager que actualice su objetivo de cámara.
         if (MazeLevelManager.Instance != null)
         {
             MazeLevelManager.Instance.TriggerPendingLevelUnlock();
@@ -264,6 +263,15 @@ public class LevelIntroManager : MonoBehaviour
             rule1Text.text = levelConfigs[levelIndex].rule1;
             rule2Text.text = levelConfigs[levelIndex].rule2;
             if (rulesPanel != null) rulesPanel.SetActive(true);
+        }
+    }
+
+    // --- NUEVA FUNCIÓN PARA ACTUALIZAR EL DESTINO EN TIEMPO REAL ---
+    public void UpdateDestination1(string newLocationName)
+    {
+        if (destination1Text != null)
+        {
+            destination1Text.text = newLocationName;
         }
     }
 }

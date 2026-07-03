@@ -574,6 +574,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed8f02391a8af8b49882805d805e85c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RailNode
+  tooltipObject: {fileID: 1616467118}
+  tooltipText: {fileID: 0}
+  nodeName: Parada Desconocida
   connections:
   - {fileID: 528771128}
   - {fileID: 1616467122}
@@ -591,7 +594,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -770,6 +773,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed8f02391a8af8b49882805d805e85c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RailNode
+  tooltipObject: {fileID: 1581355437}
+  tooltipText: {fileID: 1581355439}
+  nodeName: Parada Desconocida
   connections:
   - {fileID: 1819969699}
   - {fileID: 1616467122}
@@ -787,7 +793,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1585,6 +1591,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed8f02391a8af8b49882805d805e85c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RailNode
+  tooltipObject: {fileID: 1616467118}
+  tooltipText: {fileID: 0}
+  nodeName: Parada Desconocida
   connections:
   - {fileID: 1304770976}
   - {fileID: 1616467122}
@@ -1602,7 +1611,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1881,7 +1890,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1917,6 +1926,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed8f02391a8af8b49882805d805e85c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RailNode
+  tooltipObject: {fileID: 1434396931}
+  tooltipText: {fileID: 1434396933}
+  nodeName: Parada Desconocida
   connections:
   - {fileID: 815809068}
 --- !u!1 &672149642
@@ -1969,6 +1981,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed8f02391a8af8b49882805d805e85c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RailNode
+  tooltipObject: {fileID: 1616467118}
+  tooltipText: {fileID: 0}
+  nodeName: Parada Desconocida
   connections:
   - {fileID: 1489512799}
   - {fileID: 1304770976}
@@ -1986,7 +2001,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 0.96981126, g: 0.9030202, b: 0, a: 1}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -2422,6 +2437,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed8f02391a8af8b49882805d805e85c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RailNode
+  tooltipObject: {fileID: 1616467118}
+  tooltipText: {fileID: 0}
+  nodeName: Parada Desconocida
   connections:
   - {fileID: 1568444604}
 --- !u!114 &810331644
@@ -2438,7 +2456,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 0.088679194, g: 0.6497101, b: 1, a: 1}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -2515,7 +2533,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -2551,6 +2569,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed8f02391a8af8b49882805d805e85c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RailNode
+  tooltipObject: {fileID: 1968857204}
+  tooltipText: {fileID: 1968857206}
+  nodeName: Parada Desconocida
   connections:
   - {fileID: 1532635235}
   - {fileID: 1783333228}
@@ -2803,6 +2824,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed8f02391a8af8b49882805d805e85c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RailNode
+  tooltipObject: {fileID: 1616467118}
+  tooltipText: {fileID: 0}
+  nodeName: Parada Desconocida
   connections:
   - {fileID: 672149644}
   - {fileID: 1732289955}
@@ -2820,7 +2844,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -2894,6 +2918,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed8f02391a8af8b49882805d805e85c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RailNode
+  tooltipObject: {fileID: 1069778937}
+  tooltipText: {fileID: 1069778939}
+  nodeName: Parada Desconocida
   connections:
   - {fileID: 632925413}
   - {fileID: 1819969699}
@@ -2912,7 +2939,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -3662,6 +3689,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed8f02391a8af8b49882805d805e85c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RailNode
+  tooltipObject: {fileID: 1616467118}
+  tooltipText: {fileID: 0}
+  nodeName: Parada Desconocida
   connections:
   - {fileID: 1568444604}
   - {fileID: 1640481145}
@@ -3679,7 +3709,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -3734,6 +3764,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed8f02391a8af8b49882805d805e85c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RailNode
+  tooltipObject: {fileID: 1616467118}
+  tooltipText: {fileID: 0}
+  nodeName: Parada Desconocida
   connections:
   - {fileID: 1568444604}
 --- !u!114 &1292962920
@@ -3750,7 +3783,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -3844,6 +3877,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed8f02391a8af8b49882805d805e85c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RailNode
+  tooltipObject: {fileID: 1990234138}
+  tooltipText: {fileID: 1990234140}
+  nodeName: Parada Desconocida
   connections:
   - {fileID: 1616467122}
   - {fileID: 1532635235}
@@ -3861,7 +3897,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -4633,7 +4669,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -4669,6 +4705,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed8f02391a8af8b49882805d805e85c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RailNode
+  tooltipObject: {fileID: 100637157}
+  tooltipText: {fileID: 100637159}
+  nodeName: Parada Desconocida
   connections:
   - {fileID: 1532635235}
 --- !u!1 &1510503140
@@ -4801,7 +4840,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -4837,6 +4876,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed8f02391a8af8b49882805d805e85c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RailNode
+  tooltipObject: {fileID: 1777402462}
+  tooltipText: {fileID: 1777402464}
+  nodeName: Parada Desconocida
   connections: []
 --- !u!1 &1565569427
 GameObject:
@@ -4944,6 +4986,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed8f02391a8af8b49882805d805e85c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RailNode
+  tooltipObject: {fileID: 1616467118}
+  tooltipText: {fileID: 0}
+  nodeName: Parada Desconocida
   connections:
   - {fileID: 272656463}
 --- !u!114 &1568444605
@@ -4960,7 +5005,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -5053,6 +5098,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed8f02391a8af8b49882805d805e85c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RailNode
+  tooltipObject: {fileID: 1616467118}
+  tooltipText: {fileID: 0}
+  nodeName: Parada Desconocida
   connections:
   - {fileID: 1292962919}
   - {fileID: 672149644}
@@ -5070,7 +5118,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -5281,6 +5329,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed8f02391a8af8b49882805d805e85c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RailNode
+  tooltipObject: {fileID: 1616467118}
+  tooltipText: {fileID: 0}
+  nodeName: Parada Desconocida
   connections:
   - {fileID: 2029970851}
   - {fileID: 868255960}
@@ -5298,7 +5349,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -5375,7 +5426,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 0.10186505, g: 1, b: 0, a: 1}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -5411,6 +5462,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed8f02391a8af8b49882805d805e85c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RailNode
+  tooltipObject: {fileID: 608086938}
+  tooltipText: {fileID: 608086940}
+  nodeName: Parada Desconocida
   connections:
   - {fileID: 1783333228}
 --- !u!1 &1620198049
@@ -5601,6 +5655,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed8f02391a8af8b49882805d805e85c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RailNode
+  tooltipObject: {fileID: 431758714}
+  tooltipText: {fileID: 431758716}
+  nodeName: Parada Desconocida
   connections:
   - {fileID: 897451611}
   - {fileID: 316055244}
@@ -5618,7 +5675,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -5905,6 +5962,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed8f02391a8af8b49882805d805e85c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RailNode
+  tooltipObject: {fileID: 1616467118}
+  tooltipText: {fileID: 0}
+  nodeName: Parada Desconocida
   connections:
   - {fileID: 528771128}
   - {fileID: 1902643118}
@@ -5922,7 +5982,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -6273,7 +6333,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -6309,6 +6369,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed8f02391a8af8b49882805d805e85c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RailNode
+  tooltipObject: {fileID: 1708324373}
+  tooltipText: {fileID: 1708324375}
+  nodeName: Parada Desconocida
   connections:
   - {fileID: 1489512799}
   - {fileID: 632925413}
@@ -6378,6 +6441,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed8f02391a8af8b49882805d805e85c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RailNode
+  tooltipObject: {fileID: 751937070}
+  tooltipText: {fileID: 751937072}
+  nodeName: Parada Desconocida
   connections:
   - {fileID: 632925413}
 --- !u!114 &1819969700
@@ -6394,7 +6460,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -6533,6 +6599,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed8f02391a8af8b49882805d805e85c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RailNode
+  tooltipObject: {fileID: 1616467118}
+  tooltipText: {fileID: 0}
+  nodeName: Parada Desconocida
   connections:
   - {fileID: 1568444604}
   - {fileID: 272656463}
@@ -6551,7 +6620,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -7048,6 +7117,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed8f02391a8af8b49882805d805e85c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RailNode
+  tooltipObject: {fileID: 1616467118}
+  tooltipText: {fileID: 0}
+  nodeName: Parada Desconocida
   connections:
   - {fileID: 1532635235}
   - {fileID: 1489512799}
@@ -7084,7 +7156,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:

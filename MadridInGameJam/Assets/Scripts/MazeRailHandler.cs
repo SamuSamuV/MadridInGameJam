@@ -47,6 +47,12 @@ public class MazeRailHandler : MonoBehaviour, IDragHandler, IBeginDragHandler, I
         {
             myRect.localPosition = GetLocalPos(currentNode);
             visitedNodes.Add(currentNode);
+
+            // NUEVO: Actualizar el nombre en el inicio
+            if (LevelIntroManager.Instance != null)
+            {
+                LevelIntroManager.Instance.UpdateDestination1(currentNode.nodeName);
+            }
         }
 
         activeLineObj = Instantiate(pathLinePrefab, linesContainer);
@@ -119,7 +125,6 @@ public class MazeRailHandler : MonoBehaviour, IDragHandler, IBeginDragHandler, I
                     }
                 }
             }
-
             else
             {
                 GetClosestPointInfo(GetLocalPos(currentNode), GetLocalPos(targetNode), localMousePos, out Vector2 point, out float t);
@@ -129,7 +134,6 @@ public class MazeRailHandler : MonoBehaviour, IDragHandler, IBeginDragHandler, I
                 {
                     DrawUILine(activeLineRect, GetLocalPos(targetNode), point);
                 }
-
                 else
                 {
                     DrawUILine(activeLineRect, GetLocalPos(currentNode), point);
@@ -141,14 +145,25 @@ public class MazeRailHandler : MonoBehaviour, IDragHandler, IBeginDragHandler, I
                     {
                         Destroy(bakedLines.Pop());
                         visitedNodes.RemoveAt(visitedNodes.Count - 1);
-                    }
 
+                        // NUEVO: Si retrocedemos, actualizar al destino anterior
+                        if (LevelIntroManager.Instance != null)
+                        {
+                            LevelIntroManager.Instance.UpdateDestination1(targetNode.nodeName);
+                        }
+                    }
                     else
                     {
                         GameObject newBakedLine = Instantiate(pathLinePrefab, linesContainer);
                         DrawUILine(newBakedLine.GetComponent<RectTransform>(), GetLocalPos(currentNode), GetLocalPos(targetNode));
                         bakedLines.Push(newBakedLine);
                         visitedNodes.Add(targetNode);
+
+                        // NUEVO: Al avanzar y llegar a un nuevo punto, actualizamos el panel
+                        if (LevelIntroManager.Instance != null)
+                        {
+                            LevelIntroManager.Instance.UpdateDestination1(targetNode.nodeName);
+                        }
 
                         if (MazeLevelManager.Instance != null)
                         {
@@ -160,7 +175,6 @@ public class MazeRailHandler : MonoBehaviour, IDragHandler, IBeginDragHandler, I
                     targetNode = null;
                     activeLineObj.SetActive(false);
                 }
-
                 else if (t <= 0.01f)
                 {
                     if (isBacktracking && bakedLines.Count > 0)
