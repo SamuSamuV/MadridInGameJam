@@ -25,7 +25,6 @@ public class MazeLevel
 
     [Header("Camera Automation")]
     public float targetZoomScale = 1f;
-    [Tooltip("El objeto vacío dentro del mapa que marcará el centro de la cámara")]
     public RectTransform cameraFocusPoint;
 
     [Header("Random Popups")]
@@ -76,6 +75,21 @@ public class MazeLevelManager : MonoBehaviour
         {
             if (level.levelEndNode == reachedNode)
             {
+                // ¿Ha cumplido las reglas?
+                bool rulesPassed = true;
+                if (LevelIntroManager.Instance != null && MazeRailHandler.Instance != null)
+                {
+                    rulesPassed = LevelIntroManager.Instance.AreAllRulesSatisfied(MazeRailHandler.Instance.GetVisitedNodes());
+                }
+
+                // SI NO LAS CUMPLE, BLOQUEAMOS LA VICTORIA Y AVISAMOS
+                if (!rulesPassed)
+                {
+                    Debug.Log("Intento de finalizar bloqueado: Las reglas no se han cumplido.");
+                    if (LevelIntroManager.Instance != null) LevelIntroManager.Instance.FlashRules();
+                    return;
+                }
+
                 if (level.isFinalLevel || (level.nextLevelContainer != null && !level.nextLevelContainer.activeSelf))
                 {
                     ShowCompletionPopup(level);

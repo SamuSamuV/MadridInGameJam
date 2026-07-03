@@ -12,14 +12,12 @@ public enum RuleCondition
     ForbiddenNodes
 }
 
-// Estructura de cada Regla
 [System.Serializable]
 public class RuleData
 {
     [TextArea(2, 3)] public string ruleText;
-    public RuleCondition condition;
-    [Tooltip("Escribe los nombres exactos de las paradas. Ej: Goya, Cuatro Caminos...")]
-    public List<string> targetNodes;
+    public RuleCondition condition = RuleCondition.None;
+    public List<string> targetNodes = new List<string>();
 }
 
 [System.Serializable]
@@ -38,10 +36,10 @@ public class LevelConfig
     [TextArea(2, 4)] public string[] dialogues;
 
     [Header("Rule 1")]
-    public RuleData rule1;
+    public RuleData rule1 = new RuleData();
 
     [Header("Rule 2")]
-    public RuleData rule2;
+    public RuleData rule2 = new RuleData();
 
     [Header("Destinations")]
     public string destination1;
@@ -287,11 +285,11 @@ public class LevelIntroManager : MonoBehaviour
         {
             LevelConfig config = levelConfigs[levelIndex];
 
-            if (rule1Text != null) rule1Text.text = config.rule1.ruleText;
-            if (rule2Text != null) rule2Text.text = config.rule2.ruleText;
+            if (rule1Text != null && config.rule1 != null) rule1Text.text = config.rule1.ruleText;
+            if (rule2Text != null && config.rule2 != null) rule2Text.text = config.rule2.ruleText;
 
-            if (rule1StatusIcon != null) rule1StatusIcon.gameObject.SetActive(config.rule1.condition != RuleCondition.None);
-            if (rule2StatusIcon != null) rule2StatusIcon.gameObject.SetActive(config.rule2.condition != RuleCondition.None);
+            if (rule1StatusIcon != null) rule1StatusIcon.gameObject.SetActive(config.rule1 != null && config.rule1.condition != RuleCondition.None);
+            if (rule2StatusIcon != null) rule2StatusIcon.gameObject.SetActive(config.rule2 != null && config.rule2.condition != RuleCondition.None);
 
             if (rulesPanel != null) rulesPanel.SetActive(true);
         }
@@ -327,7 +325,8 @@ public class LevelIntroManager : MonoBehaviour
 
     private bool CheckRule(RuleData rule, List<string> visitedNames)
     {
-        if (rule.condition == RuleCondition.None) return true;
+        // Seguro anti-crashes
+        if (rule == null || rule.condition == RuleCondition.None) return true;
 
         List<string> targetsClean = new List<string>();
         if (rule.targetNodes != null)
@@ -338,7 +337,7 @@ public class LevelIntroManager : MonoBehaviour
         switch (rule.condition)
         {
             case RuleCondition.MandatoryNodes:
-                if (targetsClean.Count == 0) return false;
+                if (targetsClean.Count == 0) return true;
                 foreach (string mandatory in targetsClean)
                 {
                     if (!visitedNames.Contains(mandatory)) return false;
@@ -369,5 +368,48 @@ public class LevelIntroManager : MonoBehaviour
         }
 
         return true;
+    }
+
+    public bool AreAllRulesSatisfied(List<RailNode> visitedNodes)
+    {
+        if (levelConfigs == null || currentLevelIndex >= levelConfigs.Count) return true;
+
+        LevelConfig currentConfig = levelConfigs[currentLevelIndex];
+
+        List<string> visitedNames = new List<string>();
+        foreach (var node in visitedNodes)
+        {
+            visitedNames.Add(CleanString(node.nodeName));
+        }
+
+        bool rule1Passed = CheckRule(currentConfig.rule1, visitedNames);
+        bool rule2Passed = CheckRule(currentConfig.rule2, visitedNames);
+
+        return rule1Passed && rule2Passed;
+    }
+
+    // --- ANIMACIÓN AL FALLAR LAS REGLAS ---
+    public void FlashRules()
+    {
+        StartCoroutine(FlashRoutine());
+    }
+
+    private IEnumerator FlashRoutine()
+    {
+        Color original = Color.white;
+        Color errorColor = new Color(1f, 0.5f, 0.5f); // Tono rojo claro
+
+        for (int i = 0; i < 3; i++)
+        {
+            if (rule1StatusIcon != null && rule1StatusIcon.sprite == crossSprite) rule1StatusIcon.color = errorColor;
+            if (rule2StatusIcon != null && rule2StatusIcon.sprite == crossSprite) rule2StatusIcon.color = errorColor;
+
+            yield return new WaitForSeconds(0.15f);
+
+            if (rule1StatusIcon != null) rule1StatusIcon.color = original;
+            if (rule2StatusIcon != null) rule2StatusIcon.color = original;
+
+            yield return new WaitForSeconds(0.15f);
+        }
     }
 }
