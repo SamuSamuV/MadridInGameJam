@@ -105,7 +105,6 @@ public class LevelIntroManager : MonoBehaviour
     private Vector2 originalViewportSize;
     private Vector2 originalBarPosition;
 
-    // NUEVO: Variable para saber si está en modo despedida
     private bool isPlayingOutro = false;
 
     private void Awake()
@@ -137,11 +136,9 @@ public class LevelIntroManager : MonoBehaviour
         StartCoroutine(CollapseMapAndStartIntro(currentLevelIndex));
     }
 
-    // --- NUEVA FUNCIÓN: Se ejecuta cuando se completa el último nivel ---
     public void PlayOutro()
     {
         isPlayingOutro = true;
-        // Reutilizamos la misma animación de colapsar el mapa para que vuelva a salir la chica
         StartCoroutine(CollapseMapAndStartIntro(currentLevelIndex));
     }
 
@@ -196,16 +193,15 @@ public class LevelIntroManager : MonoBehaviour
 
     public void OnDialogueClicked()
     {
+        if (AudioManager.Instance != null) AudioManager.Instance.PlayDialogueClick();
+
         if (isAnimatingExit || isCollapsingMap) return;
 
         if (isTyping)
         {
             StopCoroutine(typingCoroutine);
-
-            // Si está en despedida usa el array de Outro, si no, usa el normal
             string[] currentDialogues = isPlayingOutro ? levelConfigs[currentLevelIndex].outroDialogues : levelConfigs[currentLevelIndex].dialogues;
             dialogueText.text = currentDialogues[currentLine];
-
             isTyping = false;
         }
         else
@@ -217,7 +213,6 @@ public class LevelIntroManager : MonoBehaviour
 
     private void ShowNextLine()
     {
-        // Elegimos de qué lista de textos tirar
         string[] currentDialogues = isPlayingOutro ? levelConfigs[currentLevelIndex].outroDialogues : levelConfigs[currentLevelIndex].dialogues;
 
         if (currentLine < currentDialogues.Length)
@@ -228,7 +223,6 @@ public class LevelIntroManager : MonoBehaviour
         {
             if (isPlayingOutro)
             {
-                // --- SI ESTAMOS EN LA DESPEDIDA, CARGAMOS LOS CRÉDITOS AL TERMINAR DE HABLAR ---
                 isAnimatingExit = true;
                 if (SceneTransitionManager.Instance != null)
                     SceneTransitionManager.Instance.LoadLevel(levelConfigs[currentLevelIndex].creditsSceneName);
@@ -237,20 +231,46 @@ public class LevelIntroManager : MonoBehaviour
             }
             else
             {
-                // Si es un nivel normal, hace la animación de irse y abre el mapa
                 isAnimatingExit = true;
                 StartCoroutine(ExitAnimationAndExpand());
             }
         }
     }
 
+    // --- EL FIX DEL AUDIO: Lógica de fin de frase ---
     private IEnumerator TypeLine(string line)
     {
         isTyping = true;
         dialogueText.text = "";
+
+        // 1. Sonido inicial para la primera frase del bloque
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlayLadySpeak();
+        }
+
+        bool playSoundOnNextLetter = false;
+
         foreach (char letter in line.ToCharArray())
         {
             dialogueText.text += letter;
+
+            // 2. Si venimos de un punto/signo y empezamos una palabra nueva, reproducimos sonido
+            if (playSoundOnNextLetter && char.IsLetterOrDigit(letter))
+            {
+                if (AudioManager.Instance != null)
+                {
+                    AudioManager.Instance.PlayLadySpeak();
+                }
+                playSoundOnNextLetter = false; // Ya ha sonado para esta frase, apagamos el aviso
+            }
+
+            // 3. Detectar si acaba una frase (para preparar el sonido de la siguiente)
+            if (letter == '.' || letter == '?' || letter == '!')
+            {
+                playSoundOnNextLetter = true;
+            }
+
             yield return new WaitForSeconds(typeSpeed);
         }
         isTyping = false;

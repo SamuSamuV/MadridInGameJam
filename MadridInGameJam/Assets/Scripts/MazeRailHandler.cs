@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using System.Collections.Generic;
 
-public class MazeRailHandler : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
+public class MazeRailHandler : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler, IPointerEnterHandler, IPointerExitHandler
 {
     [Header("Maze Setup")]
     public RailNode startingNode;
@@ -31,6 +31,11 @@ public class MazeRailHandler : MonoBehaviour, IDragHandler, IBeginDragHandler, I
     private Vector2 dragTargetPos;
     private Vector2 dragOffset;
 
+    // --- NUEVO: Hover del jugador ---
+    private Vector3 originalScale;
+    private Vector3 targetScale;
+    private float hoverScaleMultiplier = 1.15f;
+
     public static MazeRailHandler Instance;
 
     private void Awake()
@@ -42,6 +47,10 @@ public class MazeRailHandler : MonoBehaviour, IDragHandler, IBeginDragHandler, I
     private void Start()
     {
         myRect = GetComponent<RectTransform>();
+
+        originalScale = myRect.localScale;
+        targetScale = originalScale;
+
         currentNode = startingNode;
 
         if (currentNode != null)
@@ -67,16 +76,20 @@ public class MazeRailHandler : MonoBehaviour, IDragHandler, IBeginDragHandler, I
         return visitedNodes;
     }
 
+    // Efecto Hover visual sobre el propio jugador
+    public void OnPointerEnter(PointerEventData eventData) { targetScale = originalScale * hoverScaleMultiplier; }
+    public void OnPointerExit(PointerEventData eventData) { if (!isDragging) targetScale = originalScale; }
+
     public void OnBeginDrag(PointerEventData eventData)
     {
         isDragging = true;
         dragTargetPos = myRect.localPosition;
+        targetScale = originalScale * hoverScaleMultiplier;
+
+        if (AudioManager.Instance != null) AudioManager.Instance.PlayPlayerClick();
 
         if (RectTransformUtility.ScreenPointToLocalPointInRectangle(
-            (RectTransform)myRect.parent,
-            eventData.position,
-            eventData.pressEventCamera,
-            out Vector2 localMousePos))
+            (RectTransform)myRect.parent, eventData.position, eventData.pressEventCamera, out Vector2 localMousePos))
         {
             dragOffset = (Vector2)myRect.localPosition - localMousePos;
         }
@@ -94,13 +107,9 @@ public class MazeRailHandler : MonoBehaviour, IDragHandler, IBeginDragHandler, I
         }
 
         if (RectTransformUtility.ScreenPointToLocalPointInRectangle(
-            (RectTransform)myRect.parent,
-            eventData.position,
-            eventData.pressEventCamera,
-            out Vector2 rawLocalMousePos))
+            (RectTransform)myRect.parent, eventData.position, eventData.pressEventCamera, out Vector2 rawLocalMousePos))
         {
             Vector2 localMousePos = rawLocalMousePos + dragOffset;
-
             Vector2 startPos = GetLocalPos(currentNode);
             Vector2 mouseDir = (localMousePos - startPos).normalized;
             float mouseDist = Vector2.Distance(startPos, localMousePos);
@@ -141,31 +150,23 @@ public class MazeRailHandler : MonoBehaviour, IDragHandler, IBeginDragHandler, I
                     if (newBestNode != null && newBestNode != targetNode)
                     {
                         if (targetNode != null && isBacktracking && bakedLines.Count > 0)
-                        {
                             bakedLines.Peek().SetActive(true);
-                        }
 
                         targetNode = newBestNode;
                         isBacktracking = (visitedNodes.Count > 1 && targetNode == visitedNodes[visitedNodes.Count - 2]);
 
                         activeLineObj.SetActive(true);
                         if (isBacktracking && bakedLines.Count > 0)
-                        {
                             bakedLines.Peek().SetActive(false);
-                        }
                     }
                 }
 
                 if (targetNode != null)
                 {
                     GetClosestPointInfo(GetLocalPos(currentNode), GetLocalPos(targetNode), localMousePos, out Vector2 point, out float t);
-
                     dragTargetPos = point;
 
-                    if (t >= 0.99f)
-                    {
-                        CompleteMovementToTarget();
-                    }
+                    if (t >= 0.99f) CompleteMovementToTarget();
                 }
             }
         }
@@ -174,24 +175,25 @@ public class MazeRailHandler : MonoBehaviour, IDragHandler, IBeginDragHandler, I
     public void OnEndDrag(PointerEventData eventData)
     {
         isDragging = false;
-        if (targetNode != null)
-        {
-            CancelTargetAndReturn();
-        }
+        targetScale = originalScale;
+
+        if (AudioManager.Instance != null) AudioManager.Instance.PlayPlayerRelease();
+
+        if (targetNode != null) CancelTargetAndReturn();
     }
 
     private void Update()
     {
+        myRect.localScale = Vector3.Lerp(myRect.localScale, targetScale, Time.deltaTime * 15f);
+
         if (currentNode != null)
         {
             if (isDragging && targetNode != null)
             {
                 myRect.localPosition = Vector3.Lerp(myRect.localPosition, dragTargetPos, Time.deltaTime * followSpeed);
 
-                if (isBacktracking)
-                    DrawUILine(activeLineRect, GetLocalPos(targetNode), myRect.localPosition);
-                else
-                    DrawUILine(activeLineRect, GetLocalPos(currentNode), myRect.localPosition);
+                if (isBacktracking) DrawUILine(activeLineRect, GetLocalPos(targetNode), myRect.localPosition);
+                else DrawUILine(activeLineRect, GetLocalPos(currentNode), myRect.localPosition);
             }
             else if (!isDragging)
             {
@@ -202,6 +204,8 @@ public class MazeRailHandler : MonoBehaviour, IDragHandler, IBeginDragHandler, I
 
     private void CompleteMovementToTarget()
     {
+        if (AudioManager.Instance != null) AudioManager.Instance.PlayPassStation();
+
         if (isBacktracking)
         {
             Destroy(bakedLines.Pop());
@@ -232,11 +236,7 @@ public class MazeRailHandler : MonoBehaviour, IDragHandler, IBeginDragHandler, I
             }
         }
 
-        // --- LA MAGIA DEL MENÚ PRINCIPAL ---
-        if (MainMenuManager.Instance != null)
-        {
-            MainMenuManager.Instance.OnNodeReached(targetNode);
-        }
+        if (MainMenuManager.Instance != null) MainMenuManager.Instance.OnNodeReached(targetNode);
 
         currentNode = targetNode;
         targetNode = null;
@@ -246,11 +246,7 @@ public class MazeRailHandler : MonoBehaviour, IDragHandler, IBeginDragHandler, I
 
     private void CancelTargetAndReturn()
     {
-        if (isBacktracking && bakedLines.Count > 0)
-        {
-            bakedLines.Peek().SetActive(true);
-        }
-
+        if (isBacktracking && bakedLines.Count > 0) bakedLines.Peek().SetActive(true);
         targetNode = null;
         activeLineObj.SetActive(false);
         dragTargetPos = GetLocalPos(currentNode);
@@ -259,6 +255,7 @@ public class MazeRailHandler : MonoBehaviour, IDragHandler, IBeginDragHandler, I
     private void CancelDrag()
     {
         isDragging = false;
+        targetScale = originalScale;
         CancelTargetAndReturn();
     }
 
@@ -298,29 +295,17 @@ public class MazeRailHandler : MonoBehaviour, IDragHandler, IBeginDragHandler, I
 
     public void ClearTrail()
     {
-        while (bakedLines.Count > 0)
-        {
-            Destroy(bakedLines.Pop());
-        }
-
+        while (bakedLines.Count > 0) Destroy(bakedLines.Pop());
         visitedNodes.Clear();
-
-        if (currentNode != null)
-        {
-            visitedNodes.Add(currentNode);
-        }
-
-        if (LevelIntroManager.Instance != null)
-        {
-            LevelIntroManager.Instance.EvaluateRules(visitedNodes);
-        }
+        if (currentNode != null) visitedNodes.Add(currentNode);
+        if (LevelIntroManager.Instance != null) LevelIntroManager.Instance.EvaluateRules(visitedNodes);
     }
 
-    // --- NUEVO: Función para que el menú devuelva el cubo al centro tras cerrar opciones ---
     public void ResetToStart()
     {
         ClearTrail();
         isDragging = false;
+        targetScale = originalScale;
         targetNode = null;
         currentNode = startingNode;
 
@@ -330,9 +315,6 @@ public class MazeRailHandler : MonoBehaviour, IDragHandler, IBeginDragHandler, I
             dragTargetPos = myRect.localPosition;
         }
 
-        if (activeLineObj != null)
-        {
-            activeLineObj.SetActive(false);
-        }
+        if (activeLineObj != null) activeLineObj.SetActive(false);
     }
 }

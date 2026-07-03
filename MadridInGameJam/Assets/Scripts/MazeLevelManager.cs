@@ -67,6 +67,8 @@ public class MazeLevelManager : MonoBehaviour
         currentFocusPoint = startingFocusPoint;
 
         if (popupPanel != null) popupPanel.SetActive(false);
+
+        if (AudioManager.Instance != null) AudioManager.Instance.PlayGameplayMusic();
     }
 
     public void CheckLevelProgression(RailNode reachedNode)
@@ -98,6 +100,8 @@ public class MazeLevelManager : MonoBehaviour
 
     private void ShowCompletionPopup(MazeLevel level)
     {
+        if (AudioManager.Instance != null) AudioManager.Instance.PlayMissionComplete();
+
         pendingLevelToUnlock = level;
 
         if (level.popupOptions != null && level.popupOptions.Count > 0)

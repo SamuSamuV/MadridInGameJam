@@ -27,6 +27,11 @@ public class MainMenuManager : MonoBehaviour
         else Destroy(gameObject);
     }
 
+    void Start()
+    {
+        if (AudioManager.Instance != null) AudioManager.Instance.PlayMenuMusic();
+    }
+
     // --- NUEVA FUNCIÓN: Es llamada por el cubo cuando llega a una parada ---
     public void OnNodeReached(RailNode reachedNode)
     {

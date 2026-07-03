@@ -10,53 +10,62 @@ public class RailNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     [HideInInspector] public string nodeName;
 
     [Header("Station Setup")]
-    [Tooltip("Añade aquí los colores de esta parada (1 color, 2 colores, 3...)")]
     public List<Color> stationColors = new List<Color> { Color.white };
 
     [Header("Connections")]
-    [Tooltip("Drag the nodes you can travel to from this point")]
     public List<RailNode> connections;
+
+    // --- NUEVO: Variables de efecto Hover ---
+    private Vector3 originalScale;
+    private Vector3 targetScale;
+    private float hoverScaleMultiplier = 1.25f; // Crecerá un 25%
 
     private void Awake()
     {
         tooltipText = GetComponentInChildren<TextMeshProUGUI>(true);
-
         if (tooltipText != null)
         {
             tooltipObject = tooltipText.gameObject;
             nodeName = tooltipText.text;
             tooltipText.raycastTarget = false;
         }
-        else
-        {
-            Debug.LogError($"¡Atención en {gameObject.name}! Esta parada no tiene ningún hijo con TextMeshPro.", this);
-        }
 
         foreach (RailNode node in connections)
         {
             if (node != null && !node.connections.Contains(this))
-            {
                 node.connections.Add(this);
-            }
         }
+
+        // Guardamos su tamaño original
+        originalScale = transform.localScale;
+        targetScale = originalScale;
     }
 
     private void Start()
     {
-        if (tooltipObject != null)
-        {
-            tooltipObject.SetActive(false);
-        }
+        if (tooltipObject != null) tooltipObject.SetActive(false);
+    }
+
+    private void Update()
+    {
+        // Crecimiento suave
+        transform.localScale = Vector3.Lerp(transform.localScale, targetScale, Time.deltaTime * 15f);
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
         if (tooltipObject != null) tooltipObject.SetActive(true);
+
+        targetScale = originalScale * hoverScaleMultiplier; // Se hace grande
+
+        if (AudioManager.Instance != null) AudioManager.Instance.PlayHoverStation();
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
         if (tooltipObject != null) tooltipObject.SetActive(false);
+
+        targetScale = originalScale; // Vuelve a la normalidad
     }
 
     private void OnDrawGizmos()
@@ -65,10 +74,7 @@ public class RailNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         Gizmos.color = Color.cyan;
         foreach (RailNode node in connections)
         {
-            if (node != null)
-            {
-                Gizmos.DrawLine(transform.position, node.transform.position);
-            }
+            if (node != null) Gizmos.DrawLine(transform.position, node.transform.position);
         }
     }
 }
