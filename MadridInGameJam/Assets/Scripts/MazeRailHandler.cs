@@ -52,7 +52,6 @@ public class MazeRailHandler : MonoBehaviour, IDragHandler, IBeginDragHandler, I
 
             if (LevelIntroManager.Instance != null)
             {
-                // AHORA PASAMOS LOS COLORES TAMBIÉN
                 LevelIntroManager.Instance.UpdateDestination1(currentNode.nodeName, currentNode.stationColors);
                 LevelIntroManager.Instance.EvaluateRules(visitedNodes);
             }
@@ -210,7 +209,6 @@ public class MazeRailHandler : MonoBehaviour, IDragHandler, IBeginDragHandler, I
 
             if (LevelIntroManager.Instance != null)
             {
-                // AHORA PASAMOS LOS COLORES
                 LevelIntroManager.Instance.UpdateDestination1(targetNode.nodeName, targetNode.stationColors);
                 LevelIntroManager.Instance.EvaluateRules(visitedNodes);
             }
@@ -224,7 +222,6 @@ public class MazeRailHandler : MonoBehaviour, IDragHandler, IBeginDragHandler, I
 
             if (LevelIntroManager.Instance != null)
             {
-                // AHORA PASAMOS LOS COLORES
                 LevelIntroManager.Instance.UpdateDestination1(targetNode.nodeName, targetNode.stationColors);
                 LevelIntroManager.Instance.EvaluateRules(visitedNodes);
             }
@@ -233,6 +230,12 @@ public class MazeRailHandler : MonoBehaviour, IDragHandler, IBeginDragHandler, I
             {
                 MazeLevelManager.Instance.CheckLevelProgression(targetNode);
             }
+        }
+
+        // --- LA MAGIA DEL MENÚ PRINCIPAL ---
+        if (MainMenuManager.Instance != null)
+        {
+            MainMenuManager.Instance.OnNodeReached(targetNode);
         }
 
         currentNode = targetNode;
@@ -311,7 +314,25 @@ public class MazeRailHandler : MonoBehaviour, IDragHandler, IBeginDragHandler, I
         {
             LevelIntroManager.Instance.EvaluateRules(visitedNodes);
         }
+    }
 
-        Debug.Log("Trail cleared for the new level!");
+    // --- NUEVO: Función para que el menú devuelva el cubo al centro tras cerrar opciones ---
+    public void ResetToStart()
+    {
+        ClearTrail();
+        isDragging = false;
+        targetNode = null;
+        currentNode = startingNode;
+
+        if (currentNode != null)
+        {
+            myRect.localPosition = GetLocalPos(currentNode);
+            dragTargetPos = myRect.localPosition;
+        }
+
+        if (activeLineObj != null)
+        {
+            activeLineObj.SetActive(false);
+        }
     }
 }
