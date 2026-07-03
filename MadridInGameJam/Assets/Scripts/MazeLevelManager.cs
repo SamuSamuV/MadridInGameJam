@@ -75,14 +75,12 @@ public class MazeLevelManager : MonoBehaviour
         {
             if (level.levelEndNode == reachedNode)
             {
-                // ¿Ha cumplido las reglas?
                 bool rulesPassed = true;
                 if (LevelIntroManager.Instance != null && MazeRailHandler.Instance != null)
                 {
                     rulesPassed = LevelIntroManager.Instance.AreAllRulesSatisfied(MazeRailHandler.Instance.GetVisitedNodes());
                 }
 
-                // SI NO LAS CUMPLE, BLOQUEAMOS LA VICTORIA Y AVISAMOS
                 if (!rulesPassed)
                 {
                     Debug.Log("Intento de finalizar bloqueado: Las reglas no se han cumplido.");
@@ -120,19 +118,27 @@ public class MazeLevelManager : MonoBehaviour
 
         if (pendingLevelToUnlock != null)
         {
-            if (pendingLevelToUnlock.isFinalLevel)
-            {
-                return;
-            }
-
             if (MazeRailHandler.Instance != null)
             {
                 MazeRailHandler.Instance.ClearTrail();
             }
 
-            if (LevelIntroManager.Instance != null)
+            // --- LA MAGIA ESTÁ AQUÍ ---
+            if (pendingLevelToUnlock.isFinalLevel)
             {
-                LevelIntroManager.Instance.PlayNextLevelIntro();
+                // Si acabas de superar el último nivel, ejecutamos la despedida
+                if (LevelIntroManager.Instance != null)
+                {
+                    LevelIntroManager.Instance.PlayOutro();
+                }
+            }
+            else
+            {
+                // Si no, seguimos al siguiente nivel normalmente
+                if (LevelIntroManager.Instance != null)
+                {
+                    LevelIntroManager.Instance.PlayNextLevelIntro();
+                }
             }
         }
     }

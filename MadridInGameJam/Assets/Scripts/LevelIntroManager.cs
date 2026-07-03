@@ -25,15 +25,18 @@ public class LevelConfig
 {
     public string levelName;
 
-    [Header("Game Ending")]
-    public bool isFinalLevel = false;
+    [Header("Game Ending (Credits)")]
     public string creditsSceneName = "Credits";
 
     [Header("Level Background")]
     public Sprite levelBackgroundSprite;
 
-    [Header("Level Specific Dialogues")]
+    [Header("Level Dialogues")]
+    [Tooltip("Lo que dice la chica ANTES de jugar el nivel")]
     [TextArea(2, 4)] public string[] dialogues;
+
+    [Tooltip("Lo que dice la chica DESPUÉS de jugar el nivel (Solo se usa si es el Nivel Final)")]
+    [TextArea(2, 4)] public string[] outroDialogues;
 
     [Header("Rule 1")]
     public RuleData rule1 = new RuleData();
@@ -41,9 +44,11 @@ public class LevelConfig
     [Header("Rule 2")]
     public RuleData rule2 = new RuleData();
 
-    [Header("Destinations")]
+    [Header("Destinations Setup")]
     public string destination1;
     public string destination2;
+    [Tooltip("Añade aquí los colores de la parada DESTINO FINAL")]
+    public List<Color> destination2Colors = new List<Color> { Color.white };
 }
 
 public class LevelIntroManager : MonoBehaviour
@@ -62,8 +67,6 @@ public class LevelIntroManager : MonoBehaviour
     public GameObject rulesPanel;
     public TextMeshProUGUI rule1Text;
     public TextMeshProUGUI rule2Text;
-
-    [Header("Rule Status Icons")]
     public Image rule1StatusIcon;
     public Image rule2StatusIcon;
     public Sprite checkSprite;
@@ -72,6 +75,10 @@ public class LevelIntroManager : MonoBehaviour
     public GameObject destinationsPanel;
     public TextMeshProUGUI destination1Text;
     public TextMeshProUGUI destination2Text;
+
+    [Header("Destination Color Bars")]
+    public Transform dest1ColorContainer;
+    public Transform dest2ColorContainer;
 
     [Header("Map Expansion Settings")]
     public RectTransform cameraViewport;
@@ -98,6 +105,9 @@ public class LevelIntroManager : MonoBehaviour
     private Vector2 originalViewportSize;
     private Vector2 originalBarPosition;
 
+    // NUEVO: Variable para saber si está en modo despedida
+    private bool isPlayingOutro = false;
+
     private void Awake()
     {
         if (Instance == null) Instance = this;
@@ -115,13 +125,23 @@ public class LevelIntroManager : MonoBehaviour
         if (cameraViewport != null) originalViewportSize = cameraViewport.sizeDelta;
         if (bottomBar != null) originalBarPosition = bottomBar.anchoredPosition;
 
+        isPlayingOutro = false;
         StartCoroutine(CollapseMapAndStartIntro(0));
     }
 
     public void PlayNextLevelIntro()
     {
+        isPlayingOutro = false;
         currentLevelIndex++;
         if (currentLevelIndex >= levelConfigs.Count) return;
+        StartCoroutine(CollapseMapAndStartIntro(currentLevelIndex));
+    }
+
+    // --- NUEVA FUNCIÓN: Se ejecuta cuando se completa el último nivel ---
+    public void PlayOutro()
+    {
+        isPlayingOutro = true;
+        // Reutilizamos la misma animación de colapsar el mapa para que vuelva a salir la chica
         StartCoroutine(CollapseMapAndStartIntro(currentLevelIndex));
     }
 
@@ -169,6 +189,7 @@ public class LevelIntroManager : MonoBehaviour
         if (levelIndex < levelConfigs.Count)
         {
             if (destination2Text != null) destination2Text.text = levelConfigs[levelIndex].destination2;
+            UpdateColorBar(dest2ColorContainer, levelConfigs[levelIndex].destination2Colors);
             if (destinationsPanel != null) destinationsPanel.SetActive(true);
         }
     }
@@ -180,7 +201,11 @@ public class LevelIntroManager : MonoBehaviour
         if (isTyping)
         {
             StopCoroutine(typingCoroutine);
-            dialogueText.text = levelConfigs[currentLevelIndex].dialogues[currentLine];
+
+            // Si está en despedida usa el array de Outro, si no, usa el normal
+            string[] currentDialogues = isPlayingOutro ? levelConfigs[currentLevelIndex].outroDialogues : levelConfigs[currentLevelIndex].dialogues;
+            dialogueText.text = currentDialogues[currentLine];
+
             isTyping = false;
         }
         else
@@ -192,7 +217,8 @@ public class LevelIntroManager : MonoBehaviour
 
     private void ShowNextLine()
     {
-        string[] currentDialogues = levelConfigs[currentLevelIndex].dialogues;
+        // Elegimos de qué lista de textos tirar
+        string[] currentDialogues = isPlayingOutro ? levelConfigs[currentLevelIndex].outroDialogues : levelConfigs[currentLevelIndex].dialogues;
 
         if (currentLine < currentDialogues.Length)
         {
@@ -200,8 +226,9 @@ public class LevelIntroManager : MonoBehaviour
         }
         else
         {
-            if (levelConfigs[currentLevelIndex].isFinalLevel)
+            if (isPlayingOutro)
             {
+                // --- SI ESTAMOS EN LA DESPEDIDA, CARGAMOS LOS CRÉDITOS AL TERMINAR DE HABLAR ---
                 isAnimatingExit = true;
                 if (SceneTransitionManager.Instance != null)
                     SceneTransitionManager.Instance.LoadLevel(levelConfigs[currentLevelIndex].creditsSceneName);
@@ -210,6 +237,7 @@ public class LevelIntroManager : MonoBehaviour
             }
             else
             {
+                // Si es un nivel normal, hace la animación de irse y abre el mapa
                 isAnimatingExit = true;
                 StartCoroutine(ExitAnimationAndExpand());
             }
@@ -295,9 +323,30 @@ public class LevelIntroManager : MonoBehaviour
         }
     }
 
-    public void UpdateDestination1(string newLocationName)
+    public void UpdateDestination1(string newLocationName, List<Color> newColors)
     {
         if (destination1Text != null) destination1Text.text = newLocationName;
+        UpdateColorBar(dest1ColorContainer, newColors);
+    }
+
+    private void UpdateColorBar(Transform container, List<Color> colors)
+    {
+        if (container == null) return;
+
+        foreach (Transform child in container)
+        {
+            Destroy(child.gameObject);
+        }
+
+        if (colors == null || colors.Count == 0) return;
+
+        foreach (Color c in colors)
+        {
+            GameObject colorBlock = new GameObject("ColorBlock", typeof(RectTransform), typeof(Image), typeof(LayoutElement));
+            colorBlock.transform.SetParent(container, false);
+            colorBlock.GetComponent<Image>().color = c;
+            colorBlock.GetComponent<LayoutElement>().flexibleWidth = 1;
+        }
     }
 
     private string CleanString(string input)
@@ -325,7 +374,6 @@ public class LevelIntroManager : MonoBehaviour
 
     private bool CheckRule(RuleData rule, List<string> visitedNames)
     {
-        // Seguro anti-crashes
         if (rule == null || rule.condition == RuleCondition.None) return true;
 
         List<string> targetsClean = new List<string>();
@@ -388,7 +436,6 @@ public class LevelIntroManager : MonoBehaviour
         return rule1Passed && rule2Passed;
     }
 
-    // --- ANIMACIÓN AL FALLAR LAS REGLAS ---
     public void FlashRules()
     {
         StartCoroutine(FlashRoutine());
@@ -397,7 +444,7 @@ public class LevelIntroManager : MonoBehaviour
     private IEnumerator FlashRoutine()
     {
         Color original = Color.white;
-        Color errorColor = new Color(1f, 0.5f, 0.5f); // Tono rojo claro
+        Color errorColor = new Color(1f, 0.5f, 0.5f);
 
         for (int i = 0; i < 3; i++)
         {
