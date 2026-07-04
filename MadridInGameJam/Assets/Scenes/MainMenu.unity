@@ -1753,7 +1753,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Opciones
+  m_text: SFX
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 671e140feed0a624db5d70218d37bcf8, type: 2}
   m_sharedMaterial: {fileID: -8950865478808098244, guid: 671e140feed0a624db5d70218d37bcf8, type: 2}
