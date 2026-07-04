@@ -1857,11 +1857,11 @@ RectTransform:
   - {fileID: 77759469}
   - {fileID: 836805379}
   - {fileID: 564326742}
-  - {fileID: 820946417}
   - {fileID: 1242129951}
   - {fileID: 1385586638}
   - {fileID: 1510503143}
   - {fileID: 496001295}
+  - {fileID: 820946417}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2023,7 +2023,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &496001295
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3069,10 +3069,10 @@ MonoBehaviour:
     targetZoomScale: 0.75
     cameraFocusPoint: {fileID: 2017300992}
     popupOptions:
-    - image: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-      text: FRIO
-    - image: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
-      text: PATA
+    - image: {fileID: 21300000, guid: e3f11efd45fd545478da773a4e6f7bf9, type: 3}
+      text: "WiZink Center\n\nEl WiZink Center es uno de los recintos m\xE1s importantes
+        de Madrid para conciertos y eventos deportivos. Han actuado en \xE9l algunos
+        de los artistas m\xE1s famosos del mundo, como Taylor Swift o Coldplay."
   - levelName: Level2
     levelEndNode: {fileID: 672149644}
     nextLevelContainer: {fileID: 431520105}
@@ -3080,10 +3080,18 @@ MonoBehaviour:
     targetZoomScale: 0.7
     cameraFocusPoint: {fileID: 1809527733}
     popupOptions:
-    - image: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-      text: FRIO
-    - image: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
-      text: PATA
+    - image: {fileID: 21300000, guid: 47022f40140bff146aa5be8117dee9af, type: 3}
+      text: "La Puerta de Alcal\xE1\n\nLa Puerta de Alcal\xE1 fue uno de los primeros
+        arcos de triunfo de Europa construidos como entrada a una ciudad, incluso
+        antes que el Arco del Triunfo de Par\xEDs."
+    - image: {fileID: 21300000, guid: 4f1a89acd2f94404dac9adfa75460057, type: 3}
+      text: "Edificio Schweppes\n\nEl Edificio Schweppes es famoso por su enorme
+        cartel luminoso, uno de los s\xEDmbolos m\xE1s reconocibles de la Gran V\xEDa
+        y protagonista de numerosas pel\xEDculas."
+    - image: {fileID: 21300000, guid: 709df68cba2be8746a17f6daa1529716, type: 3}
+      text: "Plaza Mayor: La Plaza Mayor tiene m\xE1s de 400 a\xF1os de historia.
+        En ella se celebraban mercados, corridas de toros e incluso juicios de la
+        Inquisici\xF3n."
   - levelName: Level3
     levelEndNode: {fileID: 810331643}
     nextLevelContainer: {fileID: 431520105}
@@ -3091,10 +3099,22 @@ MonoBehaviour:
     targetZoomScale: 0.7
     cameraFocusPoint: {fileID: 1809527733}
     popupOptions:
-    - image: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-      text: FRIO
-    - image: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
-      text: PATA
+    - image: {fileID: 21300000, guid: 16691dbc902b39044abc2fd34043a897, type: 3}
+      text: "Estaci\xF3n de Atocha\n\nLa Estaci\xF3n de Atocha sorprende por su gran
+        jard\xEDn tropical interior, con cientos de plantas que muchos visitantes
+        no esperan encontrar dentro de una estaci\xF3n."
+    - image: {fileID: 21300000, guid: 5026561a8c9289e4f9f4939a04e55184, type: 3}
+      text: "Kil\xF3metro Cero\n\nEl Kil\xF3metro Cero es el punto desde el que se
+        miden las distancias de las principales carreteras de Espa\xF1a y uno de
+        los lugares m\xE1s fotografiados de Madrid."
+    - image: {fileID: 21300000, guid: 774d7ae355560d84391e54c746e626a6, type: 3}
+      text: "Teatro Real\n\nEl Teatro Real es uno de los teatros de \xF3pera m\xE1s
+        importantes de Europa y destaca por su excelente ac\xFAstica y su ubicaci\xF3n
+        frente al Palacio Real."
+    - image: {fileID: 21300000, guid: 3a4f4b9bd811020458ef289d163c87c3, type: 3}
+      text: "Faro de Moncloa\n\nEl Faro de Moncloa es un mirador de 110 metros de
+        altura desde el que, en d\xEDas despejados, se puede ver incluso la Sierra
+        de Guadarrama."
 --- !u!4 &744800230
 Transform:
   m_ObjectHideFlags: 0
@@ -3706,15 +3726,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.392}
-  m_RaycastTarget: 1
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 04ba9c2fb4a13f347926a85663b8cd99, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -3792,6 +3812,7 @@ GameObject:
   - component: {fileID: 836805382}
   - component: {fileID: 836805381}
   - component: {fileID: 836805380}
+  - component: {fileID: 836805383}
   m_Layer: 5
   m_Name: CameraViewport
   m_TagString: Untagged
@@ -3871,6 +3892,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 836805378}
   m_CullTransparentMesh: 1
+--- !u!114 &836805383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 836805378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Outline
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
+  m_EffectDistance: {x: 10, y: 10}
+  m_UseGraphicAlpha: 1
 --- !u!1 &868255959
 GameObject:
   m_ObjectHideFlags: 0
@@ -4492,8 +4528,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -4549,7 +4585,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 93.897675, y: 63.16754, z: -28.904114, w: -30.538574}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -5238,143 +5274,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1242129950}
   m_CullTransparentMesh: 1
---- !u!1 &1244302451
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1244302452}
-  - component: {fileID: 1244302454}
-  - component: {fileID: 1244302453}
-  m_Layer: 5
-  m_Name: Text (TMP)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1244302452
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1244302451}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1999818730}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1244302453
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1244302451}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_text: Close
-  m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_fontSharedMaterials: []
-  m_fontMaterial: {fileID: 0}
-  m_fontMaterials: []
-  m_fontColor32:
-    serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
-  m_enableVertexGradient: 0
-  m_colorMode: 3
-  m_fontColorGradient:
-    topLeft: {r: 1, g: 1, b: 1, a: 1}
-    topRight: {r: 1, g: 1, b: 1, a: 1}
-    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
-    bottomRight: {r: 1, g: 1, b: 1, a: 1}
-  m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
-  m_tintAllSprites: 0
-  m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: -1183493901
-  m_overrideHtmlColors: 0
-  m_faceColor:
-    serializedVersion: 2
-    rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
-  m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
-  m_fontStyle: 0
-  m_HorizontalAlignment: 2
-  m_VerticalAlignment: 512
-  m_textAlignment: 65535
-  m_characterSpacing: 0
-  m_characterHorizontalScale: 1
-  m_wordSpacing: 0
-  m_lineSpacing: 0
-  m_lineSpacingMax: 0
-  m_paragraphSpacing: 0
-  m_charWidthMaxAdj: 0
-  m_TextWrappingMode: 1
-  m_wordWrappingRatios: 0.4
-  m_overflowMode: 0
-  m_linkedTextComponent: {fileID: 0}
-  parentLinkedComponent: {fileID: 0}
-  m_enableKerning: 0
-  m_ActiveFontFeatures: 6e72656b
-  m_enableExtraPadding: 0
-  checkPaddingRequired: 0
-  m_isRichText: 1
-  m_EmojiFallbackSupport: 1
-  m_parseCtrlCharacters: 1
-  m_isOrthographic: 1
-  m_isCullingEnabled: 0
-  m_horizontalMapping: 0
-  m_verticalMapping: 0
-  m_uvLineOffset: 0
-  m_geometrySortingOrder: 0
-  m_IsTextObjectScaleStatic: 0
-  m_VertexBufferAutoSizeReduction: 0
-  m_useMaxVisibleDescender: 1
-  m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
-  m_isUsingLegacyAnimationComponent: 0
-  m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
-  m_baseMaterial: {fileID: 0}
-  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!222 &1244302454
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1244302451}
-  m_CullTransparentMesh: 1
 --- !u!1 &1251787932
 GameObject:
   m_ObjectHideFlags: 0
@@ -6058,6 +5957,7 @@ GameObject:
   - component: {fileID: 1412705122}
   - component: {fileID: 1412705123}
   - component: {fileID: 1412705124}
+  - component: {fileID: 1412705125}
   m_Layer: 5
   m_Name: PopupImage
   m_TagString: Untagged
@@ -6074,15 +5974,15 @@ RectTransform:
   m_GameObject: {fileID: 1412705121}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.78078, y: 0.78078, z: 0.78078}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 820946417}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 310.24, y: 44}
-  m_SizeDelta: {x: 530.49, y: 530.4856}
+  m_AnchoredPosition: {x: 310, y: -32}
+  m_SizeDelta: {x: 530, y: 530}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1412705123
 CanvasRenderer:
@@ -6106,13 +6006,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 16691dbc902b39044abc2fd34043a897, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -6122,6 +6022,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1412705125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1412705121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Outline
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
+  m_EffectDistance: {x: 10, y: 10}
+  m_UseGraphicAlpha: 0
 --- !u!1 &1434309895
 GameObject:
   m_ObjectHideFlags: 0
@@ -8821,7 +8736,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -205, y: -45}
+  m_AnchoredPosition: {x: -205, y: -88}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1819969698
@@ -9368,16 +9283,15 @@ RectTransform:
   m_GameObject: {fileID: 1999818729}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.73836, y: 0.73836, z: 0.73836}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1244302452}
+  m_Children: []
   m_Father: {fileID: 820946417}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -278}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 486, y: 240}
+  m_SizeDelta: {x: 116, y: 116}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1999818731
 MonoBehaviour:
@@ -9455,8 +9369,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 88de655e284d02c4bb7eb7cde13b79d4, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
