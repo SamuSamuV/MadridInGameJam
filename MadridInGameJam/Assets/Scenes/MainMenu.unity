@@ -1223,7 +1223,7 @@ RectTransform:
   m_GameObject: {fileID: 625558876}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.2263, y: 1.2263, z: 1.2263}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 265287521}
@@ -1231,7 +1231,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -837, y: 446}
-  m_SizeDelta: {x: 133.4014, y: 110.8524}
+  m_SizeDelta: {x: 81, y: 88}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &625558878
 MonoBehaviour:
@@ -1309,7 +1309,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 75f8916d300b95945947f5285b52214f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 47ab047a99a1d3b44a72a63a14dbcaa0, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -1401,14 +1401,14 @@ RectTransform:
   m_GameObject: {fileID: 657057221}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.76665, y: 0.76665, z: 0.76665}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1230094126}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 458, y: -358}
+  m_AnchoredPosition: {x: 451, y: -358}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &657057223
@@ -2661,7 +2661,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Musica
+  m_text: "M\xFAsica"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 671e140feed0a624db5d70218d37bcf8, type: 2}
   m_sharedMaterial: {fileID: -8950865478808098244, guid: 671e140feed0a624db5d70218d37bcf8, type: 2}
@@ -3670,8 +3670,8 @@ MonoBehaviour:
   musicSource: {fileID: 1466516487}
   sfxSource: {fileID: 1466516486}
   voiceSource: {fileID: 1466516485}
-  menuMusic: {fileID: 0}
-  gameplayMusic: {fileID: 0}
+  menuMusic: {fileID: 8300000, guid: e533a203762418b4c8f0190c46df2d46, type: 3}
+  gameplayMusic: {fileID: 8300000, guid: e35f1b5f592e8f343878acff2f6a92dc, type: 3}
   dialogueClickClips:
   - {fileID: 8300000, guid: 2a7947e91677c654d9ecdccda62dc2ab, type: 3}
   - {fileID: 8300000, guid: a2a89d0608bbf5e4cab2ad5a48e454cd, type: 3}

@@ -6132,10 +6132,9 @@ MonoBehaviour:
       de Schweepes. \xA1Pero no quiero pasar por \xD3pera!"
     - "Me han dicho que est\xE1 tematizada y quiero verla detenidamente ma\xF1ana
       que es cuando voy a ver una \xD3pera en vivo."
-    - "Me gustar\xEDa hacer las menos paradas posibles porque quiero llegar con tiempo
-      a casa de mis amigos, que viven en San Bernardo."
-    - "\xBFQu\xE9 deber\xEDa hacer para pasar por Retiro, Sol, Callao luego ir de
-      ah\xED a San Bernardo? \xA1Recuerda que no quiero pasar por \xD3pera!"
+    - Y quiero llegar finalmente a casa de mis amigos, que viven en San Bernardo.
+    - "\xBFQu\xE9 deber\xEDa hacer para pasar por Retiro, Sol, Callao, y luego ir
+      de ah\xED a San Bernardo? \xA1Recuerda que no quiero pasar por \xD3pera!"
     outroDialogues: []
     rule1:
       ruleText: Pasar por Retiro, Sol y Callao
@@ -6160,11 +6159,10 @@ MonoBehaviour:
     dialogues:
     - "\xA1Ayer me lo pas\xE9 de lujo en casa de mis amigos! Qu\xE9 pena que hoy
       tenga que dejar Madrid.\_\_"
-    - "Antes de irme tengo que hacer unas \xFAltimas visitas importantes. \xA1Y apenas
-      tengo tiempo, necesito hacer las menos paradas posibles!."
-    - "Primero quiero ver el faro de Moncloa, luego de ah\xED irme a la \xF3pera
-      y por \xFAltimo sacarme una foto del km 0 que se me olvid\xF3 hacerlo ayer
-      antes de irme a Atocha.\_"
+    - "Antes de irme tengo que hacer unas \xFAltimas visitas importantes."
+    - "Primero quiero ver el faro de Moncloa, luego de ah\xED irme a \xD3pera y por
+      \xFAltimo sacarme una foto del km 0, que se me olvid\xF3 hacerlo ayer. Y terminar\xE9
+      cogiendo un tren en Atocha.\_"
     - "La parada de Gran V\xEDa va a estar cerrada por seguridad por una manifestaci\xF3n
       as\xED que no puedo pasar por ella. \xA1Eso complica las cosas!"
     - "\xBFQu\xE9 deber\xEDa hacer para pasar por Moncloa, \xD3pera y Sol para finalmente
