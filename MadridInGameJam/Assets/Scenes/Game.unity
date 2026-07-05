@@ -6169,11 +6169,11 @@ MonoBehaviour:
       llegar a Atocha? \xA1Recuerda que cuantas menos paradas mejor y que Gran V\xEDa
       est\xE1 cerrada!"
     outroDialogues:
-    - "\xA1Me ayudaser much\xEDsimo! Espero encontrarme m\xE1s gente as\xED por mi
+    - "\xA1Me ayudaste much\xEDsimo! Espero encontrarme m\xE1s gente as\xED por mi
       viaje por Espa\xF1a.\_\n"
     - "Si alguna vez vienes a Buenos Aires estar\xE9 encantada de ense\xF1arte la
       ciudad.\n"
-    - "\xA1Chau!!"
+    - "\xA1Chau!"
     rule1:
       ruleText: "Pasar por Moncloa, \xD3pera y Sol"
       condition: 1
