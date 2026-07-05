@@ -6126,12 +6126,12 @@ MonoBehaviour:
     creditsSceneName: Credits
     levelBackgroundSprite: {fileID: 21300000, guid: c6b2716d6c844144aa712a0652927ff6, type: 3}
     dialogues:
-    - "\xA1Menudo jetlag! Apenas he descansado, pero hoy tengo un d\xEDa bastante
-      ajetreado.\_"
+    - "\xA1Qu\xE9 jetlag que tengo! Apenas descans\xE9, pero hoy tengo un d\xEDa
+      bastante ocupado.\_"
     - "Me gustar\xEDa ver el parque del Retiro, luego ver la plaza Mayor y el letrero
       de Schweepes. \xA1Pero no quiero pasar por \xD3pera!"
-    - "Me han dicho que est\xE1 tematizada y quiero verla detenidamente ma\xF1ana
-      que es cuando voy a ver una \xD3pera en vivo."
+    - "Me dijeron que estaba tematizada y quiero verla detenidamente ma\xF1ana que
+      es cuando voy a ver una \xD3pera en vivo."
     - Y quiero llegar finalmente a casa de mis amigos, que viven en San Bernardo.
     - "\xBFQu\xE9 deber\xEDa hacer para pasar por Retiro, Sol, Callao, y luego ir
       de ah\xED a San Bernardo? \xA1Recuerda que no quiero pasar por \xD3pera!"
@@ -6157,7 +6157,7 @@ MonoBehaviour:
     creditsSceneName: Credits
     levelBackgroundSprite: {fileID: 21300000, guid: 19a1ba4dcd0ee93459d283f1846d70d6, type: 3}
     dialogues:
-    - "\xA1Ayer me lo pas\xE9 de lujo en casa de mis amigos! Qu\xE9 pena que hoy
+    - "\xA1Ayer me la pas\xE9 b\xE1rbaro en casa de mis amigos! Qu\xE9 pena que hoy
       tenga que dejar Madrid.\_\_"
     - "Antes de irme tengo que hacer unas \xFAltimas visitas importantes."
     - "Primero quiero ver el faro de Moncloa, luego de ah\xED irme a \xD3pera y por
@@ -6169,11 +6169,11 @@ MonoBehaviour:
       llegar a Atocha? \xA1Recuerda que cuantas menos paradas mejor y que Gran V\xEDa
       est\xE1 cerrada!"
     outroDialogues:
-    - "\xA1Me has ayudado much\xEDsimo! Espero encontrarme m\xE1s gente as\xED por
-      mi viaje por Espa\xF1a.\_\n"
+    - "\xA1Me ayudaser much\xEDsimo! Espero encontrarme m\xE1s gente as\xED por mi
+      viaje por Espa\xF1a.\_\n"
     - "Si alguna vez vienes a Buenos Aires estar\xE9 encantada de ense\xF1arte la
       ciudad.\n"
-    - Ciao!
+    - "\xA1Chau!!"
     rule1:
       ruleText: "Pasar por Moncloa, \xD3pera y Sol"
       condition: 1
